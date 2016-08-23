@@ -1,0 +1,39 @@
+{
+  "name": "chdecultot",
+  "version": "1.0.0",
+  "description": "Personal Website For Charles-Henri Decultot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chdecultot/Personal-Website.git"
+  },
+  "keywords": [
+    "decultot",
+    "nodejs",
+    "javascript",
+    "web-development",
+    "enterprise"
+  ],
+  "author": "Charles-Henri Decultot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chdecultot/Personal-Website/issues"
+  },
+  "homepage": "https://github.com/chdecultot/Personal-Website#readme",
+  "devDependencies": {
+    "express": "^4.14.0",
+    "metalsmith": "^2.2.0",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-browser-sync": "^1.1.1",
+    "metalsmith-html-minifier": "^2.1.0",
+    "metalsmith-in-place": "^1.4.4",
+    "metalsmith-layouts": "^1.6.5",
+    "metalsmith-mapsite": "^1.0.4",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-templates": "^0.7.0",
+    "morgan": "^1.7.0"
+  }
+}
