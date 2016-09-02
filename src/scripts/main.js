@@ -50,4 +50,14 @@ $(document).ready(function(){
             $("#emailAddress").hide('slow');
             $("#phoneNumber").toggle('slow');
         });
+
+        // Script for the form submission
+        $("#contactForm").submit(function() {
+            var data = {name: 'name', textarea: 'textarea'};
+            $.post('/send', data, function(resp) {
+                alert(resp);
+                console.log("post response: " + resp);
+            });
+        });
+
 });

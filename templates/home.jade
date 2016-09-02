@@ -21,18 +21,18 @@ block content
        li: a.btn-floating#messageButton: i.material-icons message
    
    section.row#contactForm
-    form.col.s12.card(action="/" method="post")
+    form.col.s12.card(action="/" method="POST")
      .card-content
       .row
        .input-field.col.s12.m4
-        input.validate(placeholder="Your Name", id ="name", type="text")
+        input.validate(placeholder="Your Name", id ="name", name = "name", type="text")
        .input-field.col.s12.m4
-        input.validate(placeholder="Your Phone Number", id ="phone", type="tel")
+        input.validate(placeholder="Your Phone Number", id ="phone", name = "phone", type="tel")
        .input-field.col.s12.m4
-        input.validate(placeholder="Your Email", id ="email", type="email")
+        input.validate(placeholder="Your Email", id ="email", name = "email", type="email")
       .row
        .input-field.col.s12
-        input.materialize-textarea(placeholder="So, what's this projet ?", id ="textarea")
+        input.materialize-textarea(placeholder="So, what's this projet ?", name = "textarea", id ="textarea")
      .card-action
       .row
        .col.s3

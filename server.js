@@ -13,23 +13,16 @@ var router = express.Router();
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({extended: true })); // support encoded bodies
-app.set('views', path.join(__dirname, 'build/'));
-app.set('view engine', 'jade');
 
+app.use('/', router);
 router.use(function(req, res, next) {
     console.log(req.method, req.url);
     next();
 });
 
 app.use(express.static(path.join(__dirname, 'build')));
-router.get('/', function(request, response) {
-    var html = fs.readFileSync(htmlfile);
-    response.send(html);
-});
 
 router.post('/', handleContact);
-
-app.use('/', router);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
@@ -51,7 +44,7 @@ var email = {
     from: 'chdecultot@gmail.com',
     to: 'chdecultot@gmail.com',
     subject: 'New Form Submission',
-    text: 'Hello World!'
+    text: req.body.textarea
 };
 
 client.sendMail(email, function(err, info){
@@ -60,7 +53,7 @@ client.sendMail(email, function(err, info){
     }
     else {
         console.log('Message sent: ' + info.response);
-        res.redirect('/');
+        res.redirect("/formFeedback.html");
     }
 });
 };
