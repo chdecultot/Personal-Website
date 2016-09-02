@@ -50,19 +50,4 @@ $(document).ready(function(){
             $("#emailAddress").hide('slow');
             $("#phoneNumber").toggle('slow');
         });
-
-    // Script to submit the form
-    var name, phone, email, message;
-    $("#submit").click(function() {
-        name = ("#name").val();
-        phone = ("#phone").val();
-        email = ("#email").val();
-        message = ("#textarea").val();
-        $.get("/send", {name:name, phone:phone, email:email, message:message},function(data){
-            if(data=="sent"){
-                $(#contactForm).empty().html("Thank You. We will definitely be in touch!");
-            }
-        });
-    });
-
 });
