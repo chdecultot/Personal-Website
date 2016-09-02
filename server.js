@@ -14,7 +14,7 @@ var router = express.Router();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({extended: true })); // support encoded bodies
 
-app.use('/', router);
+
 router.use(function(req, res, next) {
     console.log(req.method, req.url);
     next();
@@ -22,6 +22,7 @@ router.use(function(req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'build')));
 
+app.use('/', router);
 router.post('/', handleContact);
 
 var port = process.env.PORT || 3000;
@@ -44,7 +45,7 @@ var email = {
     from: 'chdecultot@gmail.com',
     to: 'chdecultot@gmail.com',
     subject: 'New Form Submission',
-    text: req.body.textarea
+    text: 'NAME: '+ req.body.name + ' ||PHONE: ' + req.body.phone + ' ||EMAIL: '+ req.body.email + ' ||MESSAGE: '+ req.body.textarea
 };
 
 client.sendMail(email, function(err, info){

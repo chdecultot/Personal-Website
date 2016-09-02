@@ -19,16 +19,17 @@ $(document).ready(function(){
         var elem = document.querySelector('#headWords');
         var words = ["be more efficient ?", "sell more ?"];
         var opts = {
-         typeSpeed: 75,
-         deleteSpeed: 75,
-         pauseDelay: 2000,
+         typeSpeed: 100,
+         deleteSpeed: 100,
+         pauseDelay: 5000,
          loop: true,
          postfix: ''
         };
+    if (elem !== null){
         malarkey(elem, opts).type('web-application ?').pause().delete()
                 .type('workflow analysis ?').pause().delete()
                 .type('data analysis ?').pause().delete();
-
+    };
 
         // Script to show-up the contact form
         $("#messageButton").click( function() {
@@ -52,12 +53,10 @@ $(document).ready(function(){
         });
 
         // Script for the form submission
-        $("#contactForm").submit(function() {
-            var data = {name: 'name', textarea: 'textarea'};
-            $.post('/send', data, function(resp) {
-                alert(resp);
-                console.log("post response: " + resp);
+    $("#contactForm").submit(function() {
+        if ($('input#website').val().length != 0) {
+            return false;
+        }
             });
-        });
 
 });

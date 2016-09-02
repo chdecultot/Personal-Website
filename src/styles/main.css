@@ -32,13 +32,39 @@ h1 {
     float: right;
 }
 
-.fixed-action-btn, ul {
-    margin: 1% !important;
-    right: 0px !important;
-    transform: translateY(0%) !important;
-    position: static !important;
-    text-align: center !important;
-    width: 100% !important;
+@media (min-width: 600px) {
+#contactRow {
+    position: fixed;
+    z-index: 10;
+    bottom: 0px;
+    right: 0px;
+    width: 250px;
+}
+
+#contactImage {
+    bottom: 0px;
+    right: 0px;
+}
+
+#contactUl {
+    left: 1px;
+    top: 0;
+    bottom: 0;
+    text-align: left;
+}
+}
+
+@media (max-width: 600px){
+    #contactUl {
+        left: 50px;
+        top: 5px;
+        bottom: 0;
+        text-align: left;
+    }
+}
+
+.fixed-action-btn {
+     right: 0;
 }
 
 .fixed-action-btn, img {
@@ -46,9 +72,18 @@ h1 {
     margin: auto;
 }
 
+#contactForm, #infoPopout {
+    margin-top: 20px;
+}
+
 #contactForm, #emailAddress, #phoneNumber {
     display: none;
 }
+
+input[type="text"]#website {
+    display: none;
+}
+
 
 /*Header brackets*/
 

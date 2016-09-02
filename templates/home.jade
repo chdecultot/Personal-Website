@@ -3,26 +3,41 @@ extends ./index.jade
 block content
 
 
-  .container
-         
+ .container
+
    section.row
     .col.s12
      h2.visible Do you need a 
       span#headWords
-   
-   section.row
+
+   section.row#infoPopout
+    .col.s12.m6.push-m3
+     ul.collapsible.popout
+      li
+       .collapsible-header: i.material-icons
+        span STACK
+       .collapsible-body: i.material-icons
+      li
+       .collapsible-header: i.material-icons
+       .collapsible-body: i.material-icons
+      li
+       .collapsible-header: i.material-icons
+       .collapsible-body: i.material-icons
+
+   section.row#contactRow
     .col.s12
-     .fixed-action-btn.waves-effect.waves-light.horizontal
+     .fixed-action-btn.waves-effect.waves-light#contactImage
       a(href="#"): img(src="images/CH-round.png", alt="Charles-Henri Decultot")
-     
-      ul
+
+      ul#contactUl
        li: a.btn-floating#phoneButton: i.material-icons call
        li: a.btn-floating#emailButton: i.material-icons email
        li: a.btn-floating#messageButton: i.material-icons message
-   
+
    section.row#contactForm
-    form.col.s12.card(action="/" method="POST")
-     .card-content
+    form.col.s12.card(action="/" method="post")
+     .card-content.center-align
+      span.card-title Simply fill-in this form!
       .row
        .input-field.col.s12.m4
         input.validate(placeholder="Your Name", id ="name", name = "name", type="text")
@@ -30,23 +45,27 @@ block content
         input.validate(placeholder="Your Phone Number", id ="phone", name = "phone", type="tel")
        .input-field.col.s12.m4
         input.validate(placeholder="Your Email", id ="email", name = "email", type="email")
+        input(id ="website", name="website", type = "text", value="")
       .row
        .input-field.col.s12
         input.materialize-textarea(placeholder="So, what's this projet ?", name = "textarea", id ="textarea")
-     .card-action
+     .card-action.center-align
       .row
        .col.s3
         button.btn.waves-effect.waves-light(type="submit", name="action") Submit
-   
+
    section.row#phoneNumber
-    .col.s12.m6.push-m3
-     .card-panel
-      span 06.33.47.58.69
-      
+    .col.s12.m6.push-m3.card
+     .center-align
+      span.card-title Call me!
+      p +33 (0)6 33 47 58 69
+
    secion.row#emailAddress
-    .col.s12.m6.push-m3
-     .card-panel
-      span chdecultot@gmail.com
-      
-      
-      
+    .col.s12.m6.push-m3.card
+     .center-align
+      span.card-title Email me!
+      .card-content 
+       a(href="mailto:chdecultot@gmail.com") chdecultot@gmail.com
+
+
+
