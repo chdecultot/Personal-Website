@@ -1,19 +1,54 @@
 doctype html
-html
+html(lang='en')
   head
+    //- Meta Tags
     meta(charset="utf-8")
-    title Charles-Henri Decultot
-  body
-    .header
-      h1 Charles-Henri Personal Webpage
-
-    ul.nav
-      li: a(href='/') Home
-      li: a(href='#news') News
-      li: a(href='#about') About
-      li: a(href='#contact') Contact
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     
-    .main-content
+    //- Google Icon Font
+    link(href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    
+    //- MaterializeCSS
+    //- Compiled and minified CSS
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css")
+    
+    //- Animate.css
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css")
+    
+    //- Main Stylesheet
+    link(rel="stylesheet" href="styles/main.css")
+    
+    title Charles-Henri Decultot | Web Development
+  
+  body.grey.lighten-5.blue-grey-text.text-darken-2 
+    header
+    //-Part abandonned in first version of the site.
+      //-nav.transparent.z-depth-0#navbar(role="navigation")
+       //-.container.nav-wrapper
+        //-a.brand-logo.center.blue-grey-text.text-darken-2(href="#") &lt;ch/decultot&gt;
+                   
+       //- ul.left.hide-on-med-and-down.nav-item-left#leftItems
+       //-  li: a.blue-grey-text.text-darken-2(href='#contact') Work With Me
+       //- ul.right.hide-on-med-and-down.nav-item-right#rightItems 
+       //-  li: a.blue-grey-text.text-darken-2(href='#about') About
+        
+    main
       block content
 
-    .footer
+    footer
+      include ./footer.jade
+    
+    //- Javascript
+    //- JQuery: Required for MaterializeCSS
+    script(type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js")
+    
+    //- MaterializeCSS
+    //- Compiled and minified JavaScript -->
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js")
+    
+    //- Malarkey
+    script(type="text/javascript" src="scripts/malarkey.min.js")
+    
+    //- Main JS file
+    script(type="text/javascript" src="scripts/main.js")

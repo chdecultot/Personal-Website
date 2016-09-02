@@ -1,0 +1,52 @@
+extends ./index.jade
+
+block content
+
+
+  .container
+         
+   section.row
+    .col.s12
+     h2.visible Do you need a 
+      span#headWords
+   
+   section.row
+    .col.s12
+     .fixed-action-btn.waves-effect.waves-light.horizontal
+      a(href="#"): img(src="images/CH-round.png", alt="Charles-Henri Decultot")
+     
+      ul
+       li: a.btn-floating#phoneButton: i.material-icons call
+       li: a.btn-floating#emailButton: i.material-icons email
+       li: a.btn-floating#messageButton: i.material-icons message
+   
+   section.row#contactForm
+    form.col.s12.card(action="/" method="post")
+     .card-content
+      .row
+       .input-field.col.s12.m4
+        input.validate(placeholder="Your Name", id ="name", type="text")
+       .input-field.col.s12.m4
+        input.validate(placeholder="Your Phone Number", id ="phone", type="tel")
+       .input-field.col.s12.m4
+        input.validate(placeholder="Your Email", id ="email", type="email")
+      .row
+       .input-field.col.s12
+        input.materialize-textarea(placeholder="So, what's this projet ?", id ="textarea")
+     .card-action
+      .row
+       .col.s3
+        button.btn.waves-effect.waves-light(type="submit", name="action") Submit
+   
+   section.row#phoneNumber
+    .col.s12.m6.push-m3
+     .card-panel
+      span 06.33.47.58.69
+      
+   secion.row#emailAddress
+    .col.s12.m6.push-m3
+     .card-panel
+      span chdecultot@gmail.com
+      
+      
+      

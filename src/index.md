@@ -1,7 +1,4 @@
 ---
 title: Home
-template: index.jade
+layout: home.jade
 ---
-Hi, this is my start page; neat ain't it? ;)
-
-###Some info!
