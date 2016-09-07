@@ -10,26 +10,17 @@ body {
 
 main {
     flex: 1 0 auto;
-    padding-top: 60px;
+    padding-top: 40px;
+}
+
+.chip {
+    margin-top: 10px;
+    margin-left: 5px;
+    background: none;
 }
 
 h1 {
     font-size: 50px;
-}
-
-#navbar {
-    margin-top: 60px;
-    z-index: 10;
-}
-
-.nav-item-left {
-    padding-left : 100px;
-    float: left;
-}
-
-.nav-item-right {
-    padding-right: 100px;
-    float: right;
 }
 
 @media (min-width: 600px) {
@@ -72,11 +63,15 @@ h1 {
     margin: auto;
 }
 
-#contactForm, #infoPopout {
+#infoPopout {
+    margin-top: 80px;
+}
+
+#contactForm {
     margin-top: 20px;
 }
 
-#contactForm, #emailAddress, #phoneNumber {
+#contactForm, #aboutMe, #phoneNumber {
     display: none;
 }
 

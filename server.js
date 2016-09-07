@@ -1,6 +1,5 @@
 var express = require('express');
 var fs = require ('fs');
-var htmlfile = "index.html";
 var http = require ('http');
 var path = require ('path');
 var nodemailer = require('nodemailer');
@@ -14,16 +13,26 @@ var router = express.Router();
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({extended: true })); // support encoded bodies
 
-
 router.use(function(req, res, next) {
     console.log(req.method, req.url);
     next();
 });
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'dist')));
+// Handle 404
+app.use(function(req, res) {
+    res.status(404).redirect('/' + '404.html');
+});
+
+// Handle 500
+app.use(function(error, req, res, next) {
+    res.status(500).redirect('/' + '500.html');
+    console.log(error);
+});
 
 app.use('/', router);
 router.post('/', handleContact);
+
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
@@ -54,7 +63,11 @@ client.sendMail(email, function(err, info){
     }
     else {
         console.log('Message sent: ' + info.response);
-        res.redirect("/formFeedback.html");
-    }
+        if (req.baseUrl == '/fr/') {
+        res.redirect(req.baseUrl + "/content/feedback/");
+        } else {
+            res.redirect(req.baseUrl + "/en/content/feedback/");
+        }
+        }
 });
 };

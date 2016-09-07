@@ -1,3 +1,5 @@
+'use strict';
+
 var Metalsmith = require('metalsmith'),
     markdown   = require('metalsmith-markdown'),
     layouts    = require('metalsmith-layouts'),
@@ -5,10 +7,18 @@ var Metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     css        = require('metalsmith-clean-css'),
     fingerprint= require('metalsmith-fingerprint'),
-    inPlace    = require('metalsmith-in-place');
+    inPlace    = require('metalsmith-in-place'),
+    multiLanguage = require('metalsmith-multi-language'),
+    i18n = require('metalsmith-i18n'),
+    collections = require('metalsmith-collections'),
+    highlighter = require('highlighter');
+
+const DEFAULT_LOCALE = 'en';
+const LOCALES = ['fr', 'en'];
 
 Metalsmith(__dirname)
-    .source('./src')
+    .source('src')
+    .destination('dist')
     .use(define({
         Site: {
             url: '',
@@ -22,17 +32,60 @@ Metalsmith(__dirname)
         },
         moment: require('moment')
     }))
-    .use(markdown())
-    //.use(permalinks())
+    .use(collections({
+        'content_en': 'content/*_en.md',
+        'content_fr': 'content/*_fr.md',
+        'articles_en': {
+            pattern: 'articles/**/*_en.md',
+            sortBy: 'date',
+            reverse: true
+        },
+        'articles_fr': {
+            pattern: 'articles/**/*_fr.md',
+            sortBy: 'date',
+            reverse: true
+        }
+    }))
+    .use(multiLanguage({
+        default: DEFAULT_LOCALE,
+        locales: LOCALES
+    }))
+
+    .use(i18n({
+        default: DEFAULT_LOCALE,
+        locales: LOCALES,
+        directory: 'locales'
+    }))
+
+    .use(markdown({
+        gfm: true,
+        tables: true,
+        highlight: highlighter()
+    }))
+    .use(permalinks({
+        relative: false,
+        pattern: ':locale/:title/',
+        linksets: [{
+            match: { collection: 'content_en' },
+            pattern: ':locale/content/:title/'
+        }, {
+            match: { collection: 'content_fr' },
+            pattern: ':locale/content/:title/'
+        }, {
+            match: { collection: 'articles_en' },
+            pattern: ':locale/articles/:title/'
+        }, {
+            match: { collection: 'articles_fr' },
+            pattern: ':locale/articles/:title/'
+        }]
+    }))
     .use(css({
         files:"styles/**/*.css",
         cleanCSS: {
             rebase: true
         }
     }))
-    //.use(fingerprint({
-    //    pattern: 'styles/**/*'
-    //}))
+
     .use(inPlace({
         engine: 'jade',
         pattern: '**/*.html'
@@ -43,7 +96,6 @@ Metalsmith(__dirname)
         pattern: '**/*.html'
     }))
 
-    .destination('build')
     .build(function (err) {
         if(err) {
             console.log(err)

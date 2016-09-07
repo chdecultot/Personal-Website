@@ -1,23 +1,7 @@
 $(document).ready(function(){
 
-       //- Initial script for the navigation bar - abandonned in V1
-       $(window).scroll(function () {
-            var scroll = $(this).scrollTop();
-            var topDist = $("#navbar").position();
-            if (scroll > 60) {
-                $("#navbar").addClass("white").removeClass("transparent z-depth-0").css({"position": "fixed", "margin-top": "0px"});
-                $("#leftItems").removeClass("nav-item-left").addClass("animated fadeIn");
-                $("#rightItems").removeClass("nav-item-right").addClass("animated fadeIn");
-            } else {
-                $("#navbar").removeClass("white").addClass("z-depth-0 transparent").css({"position": "static", "margin-top": "60px"});
-                $("#leftItems").addClass("nav-item-left").removeClass("animated fadeIn");
-                $("#rightItems").addClass("nav-item-right").removeClass("animated fadeIn");
-            }
-        });
-
         // Script for the main page sentence with malarkey
         var elem = document.querySelector('#headWords');
-        var words = ["be more efficient ?", "sell more ?"];
         var opts = {
          typeSpeed: 100,
          deleteSpeed: 100,
@@ -26,29 +10,38 @@ $(document).ready(function(){
          postfix: ''
         };
     if (elem !== null){
-        malarkey(elem, opts).type('web-application ?').pause().delete()
-                .type('workflow analysis ?').pause().delete()
-                .type('data analysis ?').pause().delete();
+        if (document.documentElement.lang == 'fr') {
+        malarkey(elem, opts).type('d\'améliorer vos outils internes ?').pause().delete()
+            .type('de process plus efficients ?').pause().delete()
+            .type('d\'améliorer vos analyses de données ?').pause().delete()
+                .type('de développer vos ventes en ligne ?').pause().delete();
+        } else {
+            malarkey(elem, opts).type('to improve your internal tools ?').pause().delete()
+                .type('more efficient worflows ?').pause().delete()
+                .type('to analyze your data in-depth ?').pause().delete()
+                .type('to develop your online sales ?').pause().delete();
+
+        };
     };
 
         // Script to show-up the contact form
         $("#messageButton").click( function() {
             $("#phoneNumber").hide('slow');
-            $("#emailAddress").hide('slow');
+            $("#aboutMe").hide('slow');
             $("#contactForm").toggle('slow');
         });
 
-        // Script to show-up the email address
-        $("#emailButton").click( function() {
+        // Script to show-up the about-me section
+        $("#aboutButton").click( function() {
             $("#contactForm").hide('slow');
             $("#phoneNumber").hide('slow');
-            $("#emailAddress").toggle('slow');
+            $("#aboutMe").toggle('slow');
         });
 
         // Script to show-up the phone Number
         $("#phoneButton").click( function() {
             $("#contactForm").hide('slow');
-            $("#emailAddress").hide('slow');
+            $("#aboutMe").hide('slow');
             $("#phoneNumber").toggle('slow');
         });
 
