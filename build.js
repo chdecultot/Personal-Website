@@ -58,6 +58,7 @@ Metalsmith(__dirname)
     }))
 
     .use(markdown({
+        smartypants: true,
         gfm: true,
         tables: true,
         highlight: highlighter()
