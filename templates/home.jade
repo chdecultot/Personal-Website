@@ -12,8 +12,7 @@ append header
       if availableLocales    
         each lc, index in availableLocales
          a(href=`/${lang(lc).path}`)
-          svg(style="width:24px;height:24px" viewBox="0 0 24 24")
-              path(fill="#000000" d="M12.87,15.07L10.33,12.56L10.36,12.53C12.1,10.59 13.34,8.36 14.07,6H17V4H10V2H8V4H1V6H12.17C11.5,7.92 10.44,9.75 9,11.35C8.07,10.32 7.3,9.19 6.69,8H4.69C5.42,9.63 6.42,11.17 7.67,12.56L2.58,17.58L4,19L9,14L12.11,17.11L12.87,15.07M18.5,10H16.5L12,22H14L15.12,19H19.87L21,22H23L18.5,10M15.88,17L17.5,12.67L19.12,17H15.88Z")
+          i.material-icons language
     
 block content
 
@@ -22,19 +21,21 @@ block content
 
    section.row
     .col.s12
-     h2.visible= __('You need ')  
+     h2.visible= __('staticMain')  
       span#headWords
 
    section.row#infoPopout
-    .col.s12.m8.push-m2
+    .col.s12.m10.push-m1
      ul.collapsible.popout
-      li: each article in collections.articles_en
-       article.content-article
+      li: each article in collections[`articles_${locale}`]
         .collapsible-header.center-align
-          span article.title
-          span.timestamp= moment(article.date).format("MMMM Do YYYY")
-        .collapsible-body: i.material-icons
-          a(href='/' + article.path)= article.title
+          a(href='/' + article.path): i.material-icons subtitles
+          span= article.title
+          span.timestamp.right= moment(article.date).format("DD/MM/YYYY")
+        .collapsible-body.center-align
+          p#articlePreview= article.preview
+          a.right-alignOB(href='/' + article.path)#readButton: span=__("Read More...")
+         
      
    section.row#contactRow
     .col.s12
@@ -49,7 +50,7 @@ block content
    section.row#contactForm
     form.col.s12.card(action="/" method="post")
      .card-content.center-align
-      span.card-title= __('Let\'s Work Together')
+      span.card-title= __('contactFormTitle')
       .row
        .input-field.col.s12.m4
         input.validate(placeholder=__("Your Name"), id ="name", name = "name", type="text")
@@ -60,7 +61,7 @@ block content
         input(id ="website", name="website", type = "text", value="")
       .row
        .input-field.col.s12
-        input.materialize-textarea(placeholder=__("So, what\'s this projet ?"), name = "textarea", id ="textarea")
+        input.materialize-textarea(placeholder=__("messageText"), name = "textarea", id ="textarea")
      .card-action.center-align
       .row
        .col.s3
@@ -70,19 +71,34 @@ block content
     .col.s12.m6.push-m3.card
      .center-align
       span.card-title=__('Don\'t Hesitate To Call Me')
-      p +33 (0)6 33 47 58 69
+      .card-content#phoneContent
+       i.material-icons phone
+       span  +33 (0)6 33 47 58 69
 
    secion.row#aboutMe
-    .col.s12.m6.push-m3.card
+    .col.s12.m8.push-m2.card
      .center-align
       span.card-title=__('aboutMe-title')
-      .card-content 
-       p=__('aboutMe-p1')
-       br
-       p=__('aboutMe-p2')
-       //br
-       //p=__('aboutMe-p3')
-
+      .card-content
+       div
+        p=__('aboutMe-p1')
+        br
+       div 
+        p=__('aboutMe-p2')
+        br
+       .divider
+        br
+       div
+        p=__('aboutMe-p3')
+        ul#stackIcons
+         li: img(src="../../images/mongodb.png" alt="MongoDB Logo")
+         li: img(src="../../images/express-js.png" alt="ExpressJS Logo")
+         li: img(src="../../images/AngularJS-Shield-extra-small.png" alt="AngularJS Logo")
+         li: img(src="../../images/node-js.png" alt="NodeJS Logo")
+         li: img(src="../../images/ubuntu.png" alt="Ubuntu Logo") 
+         li: img(src="../../images/python.png" alt="Python Logo")      
+         li: img(src="../../images/libre_office.png" alt="Libre Office Logo")
+         
 block scripts
 
     //- Malarkey

@@ -25,11 +25,32 @@ block content
 
   .container
    section.row#article
-    .col.s12.m6.push-m3.card
-     .card-content.center
-      h3= title
-      div.timestamp= moment(date).format("MMMM Do YYYY")
-      article!= contents
+    .col.s12
+     .card
+      .card-image
+       img(src= image)
+       span.card-title= title
+       
+      .card-content
+       .row#blogNav
+        #blogHeader
+         img#logo.circle(src= logo, alt= author)
+         #blogInfo
+          strong= author
+          br
+          span= moment(date).locale(`${locale}`).format("LL")
+        #socialSharing.fixed-action-btn.waves-effect.waves-light.horizontal.click-to-toggle
+          a(href='#'): i.material-icons share
+          ul
+           -var myUrl = '/' + path;
+           li: a(href='#'): i: img(src="../../../images/facebook-48x48.png" srcset="../../../images/facebook-24x24.png 1x, ../../../images/facebook-48x48.png 2x" alt="Facebook Logo")
+           li: a(href='#'): i: img(src="../../../images/Google+-48x48.png" srcset="../../../images/Google+-24x24.png 1x, ../../../images/Google+-48x48.png 2x" alt="Google+ Logo")     
+           li: a(href='#'): i: img(src="../../../images/Twitter-48x48.png" srcset="../../../images/Twitter-24x24.png 1x, ../../../images/Twitter-48x48.png 2x" alt="Twitter Logo")
+           li: a(href='https://www.linkedin.com/shareArticle?mini=true&url='+myUrl+'&title='+title+'&summary='+preview+'&source=Charles-Henri Decultot'): i: img(src="../../../images/Linkedin-48x48.png" srcset="../../../images/Linkedin-24x24.png 1x, ../../../images/Linkedin-48x48.png 2x" alt="LinkedIn Logo")  
+       
+       .row 
+        #blogContent
+         article!= contents
       
 block scripts
     

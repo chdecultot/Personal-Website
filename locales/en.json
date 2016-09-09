@@ -1,20 +1,20 @@
 {
-	"fr": "fr",
 	"Your Name": "Your Name",
 	"Simply fill-in this form!": "Simply fill-in this form!",
-	"You need ": "You need ",
 	"Charles-Henri Decultot | Business and Technology Consultant": "Charles-Henri Decultot | Business and Technology Consultant",
 	"Your Phone Number": "Your Phone Number",
 	"Your Email": "Your Email",
-	"So, what's this projet ?": "So, what's this projet ?",
+	"messageText": "You want to discuss about a particular project ?",
 	"Thank you.": "Thank you.",
 	"We will definitely be in touch!": "We will definitely be in touch!",
 	"Oups...": "Oups...",
 	"This page doesn't exist or has been deleted!": "This page doesn't exist or has been deleted!",
-	"aboutMe-title": "Who Am I ?",
-	"aboutMe-p1": "Passionate about business and technology I am helping companies grow with help of the best tools for their teams and their customers.",
-	"Let's Work Together": "Let's Work Together",
+	"contactFormTitle": "Interested In Working Together ?",
 	"Don't Hesitate To Call Me": "Don't Hesitate To Call Me",
-	"aboutMe-p2": "User experience being the key to the adoption of your website or your internal softwares, I can design and implement the most modern tools for your business.",
-	"aboutMe-p3": ""
+	"aboutMe-title": "Charles-Henri Decultot",
+	"aboutMe-p1": "Entrepreneur, consultant and \"full-stack\" developer I am always looking to improve my clients' productivity and performance.",
+	"aboutMe-p2": "With an economics and corporate finance background, I am an eclectic new technologies follower and open-source enthusiast. Let me help you simplify your processes, improve your sales or maximize the adoption of your internal tools by your teams.",
+	"aboutMe-p3": "My favourite stack",
+	"Read More...": "Read More...",
+	"staticMain": "Need "
 }

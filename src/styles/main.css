@@ -23,6 +23,88 @@ h1 {
     font-size: 50px;
 }
 
+a {
+    color: inherit;
+}
+
+.collapsible-body, #articlePreview, #readButton {
+    display: block;
+}
+
+#readButton {
+    color: #26a69a;
+}
+
+.card-image {
+    max-height: 250px !important;
+    overflow: hidden;
+}
+
+#blogNav {
+    position: relative;
+}
+
+#blogHeader {
+    position: relative;
+    display: table;
+    vertical-align: middle !important;
+}
+
+#socialSharing {
+    position: absolute !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    right: 5px;
+    overflow: visible;
+    padding: 0;
+    padding-top: 30px;
+}
+
+.fixed-action-btn.horizontal ul {
+    right: 30px;
+    top: 40px;
+}
+
+#logo {
+    float: left;
+}
+
+#blogInfo {
+    padding-left: 10px;
+}
+
+#logo, #blogInfo {
+    display: table-cell;
+    max-height: 65px;
+    vertical-align: middle !important;
+}
+
+#blogContent {
+    padding-top: 40px;
+    text-indent: 50px;
+}
+
+#stackIcons > li {
+    display: inline-block;
+    height: 48px;
+}
+
+#stackIcons > li > img {
+    max-height: 48px;
+    overflow: hidden;
+    margin-left: 7px;
+}
+
+#phoneContent {
+    display: table;
+    margin: auto;
+}
+
+#phoneContent > * {
+    display: table-cell;
+    vertical-align: middle;
+}
+
 @media (min-width: 600px) {
 #contactRow {
     position: fixed;
@@ -52,6 +134,12 @@ h1 {
         bottom: 0;
         text-align: left;
     }
+
+    #socialSharing {
+        padding-top: 0px;
+    }
+
+
 }
 
 .fixed-action-btn {
