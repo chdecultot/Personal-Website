@@ -1,18 +1,23 @@
 ---
-title: How to build a custom tool for enterprise data semantic analysis
+title: Build a tool for enterprise data semantic analysis
 layout: article.jade
 date: 2016-09-09
 author: Charles-Henri Decultot
 logo: ../../../images/CH-round.png
 preview: An example of data analysis using python/pandas instead of Excel on huge data extract. Spend more time extracting the real value out of your data.
-image: ../../../images/test.jpg
+image: ../../../images/semanticAnalysis.jpg
 ---
 
-As a first article on this new blog let's consider a real case.
+ As a first article on this new blog let's consider a real case.
+
 A few weeks ago a friend was asked by his client to quickly analyze raw data extracted from their customer relationship management tools.
 He receives daily extract files from all over the world in `.csv` format and needs to check for the presence of offending words within the sales comments regarding their prospects or customers.
 
-The problem: he didn't have any other tool than Excel to do this analysis efficiently on a daily basis on files with tens of thousands entries each.
+**Problem**
+
+He didn't have any other tool than Excel to do this analysis efficiently on a daily basis on files with tens of thousands entries each.
+
+##### Finding the right tools
 
 Using Excel as an analysis tool can be sufficient to analyze small files punctually because it is flexible and most people know it better than any other software.
 
@@ -25,17 +30,19 @@ If you are familiar with Linux or Mac, you can simply install both Python and Pa
 
 Anaconda being a complete set of tools, we will start by using [The Jupyter Notebook](http://jupyter.org/) a web application that will allow us to create our small analysis program on our computer.
 
+##### Using the Jupyter Notebook
+
 After the installation of Anaconda, launch The Jupyter Notebook.
 To launch it from the terminal on Linux, add the `anaconda/bin` folder in your path: `export PATH=$PATH:"~/anaconda3/bin"` (or add it in your `~/.bashrc` file directly).
 
 Create a new folder on your computer and access it within Jupyter:
-![alt text](../../images/20160909-semantic-analysis-tool/20160909-Jupyter.png "My program folder")
+![alt text](../../../images/20160909-Jupyter.png "My program folder")
 
 Create a new file and choose "Python" as the language.
 
 Before we start creating our program, let's think about what you are trying to achieve.
   1. We receive a `.csv` file containing a certain number of columns and especially all the "comments" from our sales people.
-  2. We have a list of words considered as offending and against our ethics and compliance rules.
+  2. We have a list of words considered as offending and against our ethi cs and compliance rules.
   3. We need to obtain a report showing any match between the words in the list and the comments from our source file.
 
 For testing purposes, you can generate a mock source file with [Mockaroo](https://www.mockaroo.com/) or [CSVGenerator](http://www.csvgenerator.com/).
@@ -44,40 +51,58 @@ Add for example 6 columns ['id, first_name, last_name, email, gender, comments']
 So we now have an source file called "MOCK_DATA.csv".
 We can create a prototype of our program.
 
-```python
-#Imports the libraries necessary to handle the csv file and pandas to play with it.
+##### Writing a little program
+
+Start by importing the libraries necessary to handle the csv file and pandas to play with it.
+``` python
 import csv
 import pandas as pd
+```
 
-#words can be modified to analyze any words
+Add any offending words to be looked for.
+``` python
 words = ['lorem', 'ipsum', 'consequat']
-#You could also replace the above line with:
-#words = pd.read_csv('OFFENDING_WORDS.csv')
-#It would allow you to keep a list of all offending words in an external file.
-#Be careful in this case, the words must be in the first line, not the first column since pandas will read the first line by default.
+```
 
-#We create a dataframe called 'sourceFile' containing our source data
+You could also replace the above line with:
+``` python
+words = pd.read_csv('OFFENDING_WORDS.csv')
+```
+It would allow you to keep a list of all offending words in an external file.
+
+Be careful in this case, the words must be in the first line, not the first column since pandas will read the first line by default.
+
+
+Then create a dataframe called 'sourceFile' containing our source data and clean the comment column to remove all punctuation and uppercases.
+``` python
 sourceFile = pd.read_csv('MOCK_DATA.csv')
-#We also need to clean the comment column to remove all punctuation and uppercases
 sourceFile['comments'] = sourceFile.comments.str.lower().replace('[^A-Za-z0-9]+',' ', regex=True)
-
-#This line displays the result of the first lines of our dataframe in the console
 print(sourceFile.head(5))
-#We create a dataFrame containing the data to be exported in another '.csv' file for reporting purposes.
+```
+Create a dataFrame containing the data to be exported in another '.csv' file for your analysis.
+``` python
 exportFile = pd.DataFrame([])
-
-#We checked any match between the comments and the offending words
+```
+Check any match between the comments and the offending words.
+``` python
 for word in words:
-     sourceFile_words = sourceFile[sourceFile['comments'].str.contains(word)]
+sourceFile_words = sourceFile[sourceFile['comments'].str.contains(word)]
+```
 
-#If there is a match, add the columns 'id' and 'comments' to the report. Any other column can be added as well.
-     exportFile = exportFile.append(pd.DataFrame( data={"words": word, "id": sourceFile_words['id'], "comments": sourceFile_words['comments']}))
+If there is a match, add the columns 'id' and 'comments' to the report.
+Any other column can be added as well.
+``` python
+exportFile = exportFile.append(pd.DataFrame( data={"words": word, "id": sourceFile_words['id'], "comments": sourceFile_words['comments']}))
+```
 
-#Export the report in a '.csv' file named analysisResults
+Export the report in a '.csv' file named analysisResults.
+Then display the result of the analysis in the console for a quick check.
+``` python
 exportFile.to_csv('analysisResults.csv')
-#Display the result of the analysis also in the console.
 print(exportFile)
 ```
+
+##### Running the program
 
 There are several ways to run our program and get the expected report.
 For Linux and Mac users the simplest way is to create a new terminal within Jupyter.
@@ -90,8 +115,9 @@ Then execute the program using the python3 command.
 cd ~/Desktop/Semantic Analysis Program
 python3 semanticAnalysis.py
 ```
+
 Check the results in the console and verify that a file name analysisResults.csv has been correctly created.
-![alt text](../../images/20160909-semantic-analysis-tool/20160909-Jupyter2.png)
+![alt text](../../../images/20160909-jupyter2.png "Jupyter Terminal")
 
 As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on excel.
 You can now take more time to do more valuable tasks like use visualization to find insights in the data.

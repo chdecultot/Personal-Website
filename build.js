@@ -61,7 +61,6 @@ Metalsmith(__dirname)
         smartypants: true,
         gfm: true,
         tables: true,
-        highlight: highlighter()
     }))
     .use(permalinks({
         relative: false,

@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
         // Script for the main page sentence with malarkey
         var elem = document.querySelector('#headWords');
         var opts = {
@@ -23,6 +24,7 @@ $(document).ready(function(){
 
         };
     };
+
 
         // Script to show-up the contact form
         $("#messageButton").click( function() {
@@ -51,5 +53,14 @@ $(document).ready(function(){
             return false;
         }
             });
+
+    document.getElementById('fbButton').onclick = function() {
+        FB.ui({
+            method: 'share',
+            mobile_iframe: true,
+            href: 'http://52.89.137.196:3000/' + myUrl,
+        }, function(response){});
+    }
+
 
 });

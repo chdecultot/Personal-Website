@@ -26,17 +26,16 @@ block content
 
    section.row#infoPopout
     .col.s12.m10.push-m1
-     ul.collapsible.popout
-      li: each article in collections[`articles_${locale}`]
+     ul.collapsible.popout: each article in collections[`articles_${locale}`]
+      li
         .collapsible-header.center-align
           a(href='/' + article.path): i.material-icons subtitles
           span= article.title
           span.timestamp.right= moment(article.date).format("DD/MM/YYYY")
         .collapsible-body.center-align
           p#articlePreview= article.preview
-          a.right-alignOB(href='/' + article.path)#readButton: span=__("Read More...")
-         
-     
+          a.right-align(href='/' + article.path)#readButton: span=__("Read More...")
+      
    section.row#contactRow
     .col.s12
      .fixed-action-btn.waves-effect.waves-light#contactImage
