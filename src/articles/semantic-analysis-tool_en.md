@@ -1,10 +1,10 @@
 ---
-title: Build a tool for enterprise data semantic analysis
+title: Simplify you data analysis with the right tools
 layout: article.jade
 date: 2016-09-09
 author: Charles-Henri Decultot
 logo: ../../../images/CH-round.png
-preview: An example of data analysis using python/pandas instead of Excel on huge data extract. Spend more time extracting the real value out of your data.
+preview: An example of data analysis using Python/Pandas instead of Excel on huge data extract. Spend more time extracting the real value out of your data.
 image: ../../../images/semanticAnalysis.jpg
 ---
 
@@ -53,7 +53,7 @@ We can create a prototype of our program.
 
 ##### Writing a little program
 
-Start by importing the libraries necessary to handle the csv file and pandas to play with it.
+Start by importing the libraries necessary to handle the csv file and Pandas to play with it.
 ``` python
 import csv
 import pandas as pd
@@ -70,7 +70,7 @@ words = pd.read_csv('OFFENDING_WORDS.csv')
 ```
 It would allow you to keep a list of all offending words in an external file.
 
-Be careful in this case, the words must be in the first line, not the first column since pandas will read the first line by default.
+Be careful in this case, the words must be in the first line, not the first column since Pandas will read the first line by default.
 
 
 Then create a dataframe called 'sourceFile' containing our source data and clean the comment column to remove all punctuation and uppercases.
@@ -95,7 +95,7 @@ Any other column can be added as well.
 exportFile = exportFile.append(pd.DataFrame( data={"words": word, "id": sourceFile_words['id'], "comments": sourceFile_words['comments']}))
 ```
 
-Export the report in a '.csv' file named analysisResults.
+Export the report in a '.csv' file named 'analysisResults'.
 Then display the result of the analysis in the console for a quick check.
 ``` python
 exportFile.to_csv('analysisResults.csv')
@@ -106,18 +106,18 @@ print(exportFile)
 
 There are several ways to run our program and get the expected report.
 For Linux and Mac users the simplest way is to create a new terminal within Jupyter.
-For windows users, since the terminal is [not supported](https://github.com/jupyter/notebook/issues/172) execute the program [outside of Jupyter](http://pythoncentral.io/execute-python-script-file-shell/)
+For Windows users, since the terminal is [not supported](https://github.com/jupyter/notebook/issues/172) execute the program [outside of Jupyter](http://pythoncentral.io/execute-python-script-file-shell/)
 
 In Jupyter's terminal, navigate to the folder containing your program - In my case `/Desktop/Semantic Analysis Program`.
-Then execute the program using the python3 command.
+Then execute the program using the `python3` command.
 
 ```bash
 cd ~/Desktop/Semantic Analysis Program
 python3 semanticAnalysis.py
 ```
 
-Check the results in the console and verify that a file name analysisResults.csv has been correctly created.
+Check the results in the console and verify that a file named 'analysisResults.csv' has been correctly created.
 ![alt text](../../../images/20160909-jupyter2.png "Jupyter Terminal")
 
-As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on excel.
-You can now take more time to do more valuable tasks like use visualization to find insights in the data.
+As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.
+You can now take more time to do more valuable tasks like to use visualization tools to present the results.

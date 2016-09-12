@@ -1,125 +1,123 @@
 ---
-title: Build a tool for enterprise data semantic analysis
+title: Facilitez l'analyse de vos données grâce aux bons outils
 layout: article.jade
 date: 2016-09-09
 author: Charles-Henri Decultot
 logo: ../../../images/CH-round.png
-preview: An example of data analysis using python/pandas instead of Excel on huge data extract. Spend more time extracting the real value out of your data.
+preview: Un exemple d'analyse de données en utilisant Python/Pandas au lieu d'Excel sur de larges échantillons de données. Gagnez du temps pour extraire plus de valeur de vos données.
 image: ../../../images/semanticAnalysis.jpg
 ---
 
-#### TRADUCTION FRANCAISE EN COURS
+ Pour ce premier article, considérons un cas réel.
 
- As a first article on this new blog let's consider a real case.
+Il y a quelques semaines, le client d'un ami lui a demandé d'analyser rapidement des données brutes extraites de leur CRM (logiciel de gestion de la relation client).
+Il reçoit des extraits quotidiens venant du monde au format `.csv` et doit vérifier la présence de certains mots considérés comme choquants au sein des commentaires entrés par les commerciaux au sujets de leurs prospects ou clients.
 
-A few weeks ago a friend was asked by his client to quickly analyze raw data extracted from their customer relationship management tools.
-He receives daily extract files from all over the world in `.csv` format and needs to check for the presence of offending words within the sales comments regarding their prospects or customers.
+**Problème**
 
-**Problem**
+Il n'avait pas d'autre outil qu'Excel pour faire cette analyse efficacement de manière quotidienne sur des fichiers comprenant des milliers d'entrées chacun.
 
-He didn't have any other tool than Excel to do this analysis efficiently on a daily basis on files with tens of thousands entries each.
+##### Trouver les bons outils
 
-##### Finding the right tools
+Excel est un outil d'analyse utilse suffisant pour traiter de petits fichiers ponctuellement, car il est flexible et la plupart des gens le connaisse mieux qu'aucun autre logiciel.
 
-Using Excel as an analysis tool can be sufficient to analyze small files punctually because it is flexible and most people know it better than any other software.
+Même si l'usage d'Excel peut être considérablement amélioré grâce à la création de macros,  Usagea  manque de puissance pour gérer de gros fichiers sans risque de crash ou de blocage complet de l'ordinateur pendant qu'il effectue ses calculs.
+Du coup mon ami avait besoin de trouver un autre moyen d'automatiser sa tâche.
 
-Even if Excel usage can be considerably improved by the creation of macros, it lacks the power to handle huge files without the risk of crashing or preventing you from doing anything on your computer while it calculates.
-Therefore my friend needed to find another way to automate his task.
+Une excellent manière de faire de l'analyse de données est d'utiliser le language [Python](https://www.python.org/) couplé à [Pandas](http://pandas.pydata.org/), une librairie associée fournissant les outils pour structurer et analyser vos données.
 
-A great way to do data analysis is to use the [Python](https://www.python.org/) language with [Pandas](http://pandas.pydata.org/), an associated library providing tools for structuring and analyzing your data.
+Si vous familiers de Linux ou Mac, vous pouvez simplement installer Python et Pandas par la ligne de commande, mais je vous recommande d'installer [Anaconda](https://www.continuum.io/anaconda-overview) une plateforme complète de sciences de données disponible pour Windows, Mac et Linux.
 
-If you are familiar with Linux or Mac, you can simply install both Python and Pandas through the command line, but I would recommended to install [Anaconda](https://www.continuum.io/anaconda-overview) a complete Data Science platform available for Windows, Mac and Linux.
+Anaconda comprenant de nombreux outils, nous allons commencer par utiliser [The Jupyter Notebook](http://jupyter.org/), une application web qui va nous permettre de créer notre petit programme d'analyse sur notre ordinateur.
 
-Anaconda being a complete set of tools, we will start by using [The Jupyter Notebook](http://jupyter.org/) a web application that will allow us to create our small analysis program on our computer.
+##### Utiliser The Jupyter Notebook
 
-##### Using the Jupyter Notebook
+Après l'installation d'Anaconda, démarrez The Jupyter Notebook.
+Pour le lancer depuis le terminal sous Linux, ajouter le dossier `anaconda/bin` dans votre chemin principal (path): `export PATH=$PATH:"~/anaconda3/bin"` (ou ajouter le directement dans votre fichier `~/.bashrc`).
 
-After the installation of Anaconda, launch The Jupyter Notebook.
-To launch it from the terminal on Linux, add the `anaconda/bin` folder in your path: `export PATH=$PATH:"~/anaconda3/bin"` (or add it in your `~/.bashrc` file directly).
-
-Create a new folder on your computer and access it within Jupyter:
+Créez un nouveau dossier sur votre ordinateur et accédez-y dans Jupyter:
 ![alt text](../../../images/20160909-Jupyter.png "My program folder")
 
-Create a new file and choose "Python" as the language.
+Créez un nouveau fichier et choisissez "Python" comme language.
 
-Before we start creating our program, let's think about what you are trying to achieve.
-  1. We receive a `.csv` file containing a certain number of columns and especially all the "comments" from our sales people.
-  2. We have a list of words considered as offending and against our ethi cs and compliance rules.
-  3. We need to obtain a report showing any match between the words in the list and the comments from our source file.
+Avant de commencer à rédiger notre programme, pensons à ce que nous essayons d'accomplir.
+  1. Nous recevons un fichier `.csv` contenan un certain nombre de colonnes et notamment tous les commentaires de nos commerciaux.
+  2. Nous avons une liste de mots considérés comme choquants et allant We  l'encontre des standards ethiques de l'entreprise.
+  3. Nous avons besoin d'obtenir un rapport contenant le résultat de la comparaison entre les mots dans la liste et les commentaires de notre fichier source.
 
-For testing purposes, you can generate a mock source file with [Mockaroo](https://www.mockaroo.com/) or [CSVGenerator](http://www.csvgenerator.com/).
-Add for example 6 columns ['id, first_name, last_name, email, gender, comments'] and generate a file with 1,000 lines or more (Do some scalability testing before using the program in production). For the comments generate some "Lorem Ipsum" random text.
+Afin de tester, vous pouvez générer un faux fichier source avec [Mockaroo](https://www.mockaroo.com/) ou [CSVGenerator](http://www.csvgenerator.com/).
+Ajoutez par exemple 6 colonnes ['id, first_name, last_name, email, gender, comments'] et générez un fichier de 1000 lignes ou plus (Faites des tests d'éhelle avant d'utiliser le programme en production). Pour les commentaires générez du text aléatoire de type "Lorem Ipsum".
 
-So we now have an source file called "MOCK_DATA.csv".
-We can create a prototype of our program.
+Donc nous avons un fichier un source nommé "MOCK_DATA.csv".
+Nous pouvons créer un prototype de notre programme.
 
-##### Writing a little program
+##### Ecrire un petit programme
 
-Start by importing the libraries necessary to handle the csv file and pandas to play with it.
+Commencez par importer les librairies nécessaires pour gérer le fichier csv et Pandas pour jouer avec.
 ``` python
 import csv
 import pandas as pd
 ```
 
-Add any offending words to be looked for.
+Ajoutez tous les mots choquants à rechercher.
 ``` python
 words = ['lorem', 'ipsum', 'consequat']
 ```
 
-You could also replace the above line with:
+Vous pouvez aussi remplacer la ligne ci-dessus avec:
 ``` python
 words = pd.read_csv('OFFENDING_WORDS.csv')
 ```
-It would allow you to keep a list of all offending words in an external file.
+Ca vous permettra de garder la liste de mots choquants dans un fichier externe.
 
-Be careful in this case, the words must be in the first line, not the first column since pandas will read the first line by default.
+Attention dans ce cas, les mots doivent être sur la première ligne, pas la première colonne puisque Pandas lit la première ligne par défaut.
 
 
-Then create a dataframe called 'sourceFile' containing our source data and clean the comment column to remove all punctuation and uppercases.
+Ensuite créez un "dataframe" appelé 'sourceFile' contenant notre source de données et nettoyez la colonne de commentaires pour supprimer toute ponctuation et majuscules.
 ``` python
 sourceFile = pd.read_csv('MOCK_DATA.csv')
 sourceFile['comments'] = sourceFile.comments.str.lower().replace('[^A-Za-z0-9]+',' ', regex=True)
 print(sourceFile.head(5))
 ```
-Create a dataFrame containing the data to be exported in another '.csv' file for your analysis.
+Créez également un "dataframe" contenant les données à exporter dans un autre fichier '.csv' pour pouvoir faire vos analyses.
 ``` python
 exportFile = pd.DataFrame([])
 ```
-Check any match between the comments and the offending words.
+Vérifiez toute concordance entre les commentaires et les mots choquants.
 ``` python
 for word in words:
 sourceFile_words = sourceFile[sourceFile['comments'].str.contains(word)]
 ```
 
-If there is a match, add the columns 'id' and 'comments' to the report.
-Any other column can be added as well.
+S'il y a concordance, ajoutez les colonnes 'id' et 'comments' au rapport.
+Toute autre colonne peut également être ajoutée.
 ``` python
 exportFile = exportFile.append(pd.DataFrame( data={"words": word, "id": sourceFile_words['id'], "comments": sourceFile_words['comments']}))
 ```
 
-Export the report in a '.csv' file named analysisResults.
-Then display the result of the analysis in the console for a quick check.
+Exportez le rapport dans un fichier '.csv' nommé 'analysisResults'.
+Ensuite affichez les résultats de l'analyse dans la console pour une vérification rapide.
 ``` python
 exportFile.to_csv('analysisResults.csv')
 print(exportFile)
 ```
 
-##### Running the program
+##### Lancer le programme
 
-There are several ways to run our program and get the expected report.
-For Linux and Mac users the simplest way is to create a new terminal within Jupyter.
-For windows users, since the terminal is [not supported](https://github.com/jupyter/notebook/issues/172) execute the program [outside of Jupyter](http://pythoncentral.io/execute-python-script-file-shell/)
+Il y a plusieurs manières de lancer notre programme et d'obtenir le rapport attendu.
+Pour les utilisateurs de Linux et Mac, la façon la plus simple et de créer un nouveau terminal sous Jupyter.
+Pour les utilisateur de Windows, puisque le terminal n'est [pas supporté](https://github.com/jupyter/notebook/issues/172) lancez le programme [en dehors de Jupyter](http://pythoncentral.io/execute-python-script-file-shell/)
 
-In Jupyter's terminal, navigate to the folder containing your program - In my case `/Desktop/Semantic Analysis Program`.
-Then execute the program using the python3 command.
+Dans le terminal de Jupyter, naviguez jusqu'au dossier contenant votre programme - Dans mon cas `/Desktop/Semantic Analysis Program`.
+Exécutez le programme avec la commande `python3`.
 
 ```bash
 cd ~/Desktop/Semantic Analysis Program
 python3 semanticAnalysis.py
 ```
 
-Check the results in the console and verify that a file name analysisResults.csv has been correctly created.
+Vérifiez les résultats dans la console et que le fichier 'analysisResults.csv' a été correctement créé.
 ![alt text](../../../images/20160909-jupyter2.png "Jupyter Terminal")
 
-As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on excel.
-You can now take more time to do more valuable tasks like use visualization to find insights in the data.
+Comme vous pouvez le voir, il n'a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.
+Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.
