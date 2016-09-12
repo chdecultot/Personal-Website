@@ -27,6 +27,7 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "highlighter": "0.0.3",
+    "jade": "^1.11.0",
     "metalsmith": "^2.2.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-browser-sync": "^1.1.1",
