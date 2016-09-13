@@ -13,14 +13,14 @@ $(document).ready(function(){
     if (elem !== null){
         if (document.documentElement.lang == 'fr') {
         malarkey(elem, opts).type('d\'améliorer vos outils internes ?').pause().delete()
-            .type('de process plus efficients ?').pause().delete()
-            .type('d\'améliorer vos analyses de données ?').pause().delete()
-                .type('de développer vos ventes en ligne ?').pause().delete();
+            .type('d\'un meilleur site web ?').pause().delete()
+            .type('de visualiser vos données ?').pause().delete()
+                .type('de plus d\'efficacité ?').pause().delete();
         } else {
             malarkey(elem, opts).type('to improve your internal tools ?').pause().delete()
-                .type('more efficient worflows ?').pause().delete()
-                .type('to analyze your data in-depth ?').pause().delete()
-                .type('to develop your online sales ?').pause().delete();
+                .type('a better website ?').pause().delete()
+                .type('to visualize your data ?').pause().delete()
+                .type('more efficiency ?').pause().delete();
 
         };
     };
