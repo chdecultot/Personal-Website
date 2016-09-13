@@ -3,7 +3,9 @@ extends ./index.jade
 block styles
  //- Main Stylesheet
  link(rel="stylesheet" href="../../styles/main.css")
-    
+
+ //- Favicon
+ link(rel='shortcut icon' href='favicon.ico' type='image/x-icon')
 
 append header
 
@@ -44,27 +46,27 @@ block content
       ul#contactUl
        li: a.btn-floating#aboutButton: i.material-icons person_pin
        li: a.btn-floating#phoneButton: i.material-icons call
-       li: a.btn-floating#messageButton(href='mailto:chdecultot@gmail.com'): i.material-icons message
+       li: a.btn-floating#messageButton: i.material-icons message
 
-   //section.row#contactForm
-   // form.col.s12.card(action="/" method="post")
-   //  .card-content.center-align
-   //   span.card-title= __('contactFormTitle')
-   //   .row
-   //    .input-field.col.s12.m4
-   //     input.validate(placeholder=__("Your Name"), id ="name", name = "name", type="text")
-   //    .input-field.col.s12.m4
-   //     input.validate(placeholder=__("Your Phone Number"), id ="phone", name = "phone", type="tel")
-   //    .input-field.col.s12.m4
-   //     input.validate(placeholder=__("Your Email"), id ="email", name = "email", type="email")
-   //     input(id ="website", name="website", type = "text", value="")
-   //   .row
-   //    .input-field.col.s12
-   //     input.materialize-textarea(placeholder=__("messageText"), name = "textarea", id ="textarea")
-   //  .card-action.center-align
-   //   .row
-   //    .col.s3
-   //     button.btn.waves-effect.waves-light(type="submit", name="action") Submit
+   section.row#contactForm
+    form.col.s12.card(action="/" method="post")
+     .card-content.center-align
+      span.card-title= __('contactFormTitle')
+      .row
+       .input-field.col.s12.m4
+        input.validate(placeholder=__("Your Name"), id ="name", name = "name", type="text")
+       .input-field.col.s12.m4
+        input.validate(placeholder=__("Your Phone Number"), id ="phone", name = "phone", type="tel")
+       .input-field.col.s12.m4
+        input.validate(placeholder=__("Your Email"), id ="email", name = "email", type="email")
+        input(id ="website", name="website", type = "text", value="")
+      .row
+       .input-field.col.s12
+        input.materialize-textarea(placeholder=__("messageText"), name = "textarea", id ="textarea")
+     .card-action.center-align
+      .row
+       .col.s3
+        button.btn.waves-effect.waves-light(type="submit", name="action") Submit
 
    section.row#phoneNumber
     .col.s12.m6.push-m3.card
