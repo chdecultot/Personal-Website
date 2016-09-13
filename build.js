@@ -56,11 +56,7 @@ Metalsmith(__dirname)
         directory: 'locales'
     }))
 
-    .use(markdown({
-        gfm: true,
-        breaks: true,
-        typographer: true
-    }))
+    .use(markdown())
     .use(permalinks({
         relative: false,
         pattern: ':locale/:title/',
