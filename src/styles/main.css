@@ -85,11 +85,14 @@ a {
 
 #blogContent {
     padding-top: 30px;
-    text-indent: 25px;
-    padding: 20px;
+    padding: 25px;
     text-align: justify;
     line-height: 1.5;
     overflow: hidden;
+}
+
+#blogContent a {
+    color: #ff8a80;
 }
 
 #stackIcons > li {

@@ -21,14 +21,15 @@ Il n'avait pas d'autre outil qu'Excel pour faire cette analyse efficacement de m
 
 Excel est un outil d'analyse utilse suffisant pour traiter de petits fichiers ponctuellement, car il est flexible et la plupart des gens le connaisse mieux qu'aucun autre logiciel.
 
-Même si l'usage d'Excel peut être considérablement amélioré grâce à la création de macros,  Usagea  manque de puissance pour gérer de gros fichiers sans risque de crash ou de blocage complet de l'ordinateur pendant qu'il effectue ses calculs.
+Même si l'usage d'Excel peut être considérablement amélioré grâce à la création de macros, il  manque de puissance pour gérer de gros fichiers sans risque de crash ou de blocage complet de l'ordinateur pendant qu'il effectue ses calculs.
+
 Du coup mon ami avait besoin de trouver un autre moyen d'automatiser sa tâche.
 
 Une excellent manière de faire de l'analyse de données est d'utiliser le language [Python](https://www.python.org/) couplé à [Pandas](http://pandas.pydata.org/), une librairie associée fournissant les outils pour structurer et analyser vos données.
 
 Si vous familiers de Linux ou Mac, vous pouvez simplement installer Python et Pandas par la ligne de commande, mais je vous recommande d'installer [Anaconda](https://www.continuum.io/anaconda-overview) une plateforme complète de sciences de données disponible pour Windows, Mac et Linux.
 
-Anaconda comprenant de nombreux outils, nous allons commencer par utiliser [The Jupyter Notebook](http://jupyter.org/), une application web qui va nous permettre de créer notre petit programme d'analyse sur notre ordinateur.
+Anaconda comprenant de nombreux outils, nous allons commencer par utiliser [The Jupyter Notebook](http://jupyter.org/), une application web qui va nous permettre de créer un petit programme d'analyse sur notre ordinateur.
 
 ##### Utiliser The Jupyter Notebook
 
@@ -41,14 +42,15 @@ Créez un nouveau dossier sur votre ordinateur et accédez-y dans Jupyter:
 Créez un nouveau fichier et choisissez "Python" comme language.
 
 Avant de commencer à rédiger notre programme, pensons à ce que nous essayons d'accomplir.
-  1. Nous recevons un fichier `.csv` contenan un certain nombre de colonnes et notamment tous les commentaires de nos commerciaux.
-  2. Nous avons une liste de mots considérés comme choquants et allant We  l'encontre des standards ethiques de l'entreprise.
+  1. Nous recevons un fichier `.csv` contenant un certain nombre de colonnes et notamment tous les commentaires de nos commerciaux.
+  2. Nous avons une liste de mots considérés comme choquants et allant à l'encontre des standards ethiques de l'entreprise.
   3. Nous avons besoin d'obtenir un rapport contenant le résultat de la comparaison entre les mots dans la liste et les commentaires de notre fichier source.
 
 Afin de tester, vous pouvez générer un faux fichier source avec [Mockaroo](https://www.mockaroo.com/) ou [CSVGenerator](http://www.csvgenerator.com/).
-Ajoutez par exemple 6 colonnes ['id, first_name, last_name, email, gender, comments'] et générez un fichier de 1000 lignes ou plus (Faites des tests d'éhelle avant d'utiliser le programme en production). Pour les commentaires générez du text aléatoire de type "Lorem Ipsum".
+Ajoutez par exemple 6 colonnes ['id, first_name, last_name, email, gender, comments'] et générez un fichier de 1000 lignes ou plus (Faites des tests d'échelle avant d'utiliser le programme en production). Pour les commentaires générez du texte aléatoire de type "Lorem Ipsum".
 
 Donc nous avons un fichier un source nommé "MOCK_DATA.csv".
+
 Nous pouvons créer un prototype de notre programme.
 
 ##### Ecrire un petit programme
@@ -105,10 +107,13 @@ print(exportFile)
 ##### Lancer le programme
 
 Il y a plusieurs manières de lancer notre programme et d'obtenir le rapport attendu.
+
 Pour les utilisateurs de Linux et Mac, la façon la plus simple et de créer un nouveau terminal sous Jupyter.
-Pour les utilisateur de Windows, puisque le terminal n'est [pas supporté](https://github.com/jupyter/notebook/issues/172) lancez le programme [en dehors de Jupyter](http://pythoncentral.io/execute-python-script-file-shell/)
+
+Pour les utilisateur de Windows, puisque le terminal n'est [pas supporté](https://github.com/jupyter/notebook/issues/172) lancez le programme [en dehors de Jupyter.](http://pythoncentral.io/execute-python-script-file-shell/)
 
 Dans le terminal de Jupyter, naviguez jusqu'au dossier contenant votre programme - Dans mon cas `/Desktop/Semantic Analysis Program`.
+
 Exécutez le programme avec la commande `python3`.
 
 ```bash
@@ -120,4 +125,5 @@ Vérifiez les résultats dans la console et que le fichier 'analysisResults.csv'
 ![alt text](../../../images/20160909-jupyter2.png "Jupyter Terminal")
 
 Comme vous pouvez le voir, il n'a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.
+
 Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.

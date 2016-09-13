@@ -48,5 +48,8 @@
     "nodemailer": "^2.5.0",
     "nodemailer-sendgrid-transport": "^0.2.0",
     "sendgrid-nodejs": "0.1.0-2"
+  },
+  "dependencies": {
+    "metalsmith-markdown-remarkable": "^0.1.1"
   }
 }

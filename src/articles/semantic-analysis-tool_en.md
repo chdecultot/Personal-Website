@@ -22,6 +22,7 @@ He didn't have any other tool than Excel to do this analysis efficiently on a da
 Using Excel as an analysis tool can be sufficient to analyze small files punctually because it is flexible and most people know it better than any other software.
 
 Even if Excel usage can be considerably improved by the creation of macros, it lacks the power to handle huge files without the risk of crashing or preventing you from doing anything on your computer while it calculates.
+
 Therefore my friend needed to find another way to automate his task.
 
 A great way to do data analysis is to use the [Python](https://www.python.org/) language with [Pandas](http://pandas.pydata.org/), an associated library providing tools for structuring and analyzing your data.
@@ -49,6 +50,7 @@ For testing purposes, you can generate a mock source file with [Mockaroo](https:
 Add for example 6 columns ['id, first_name, last_name, email, gender, comments'] and generate a file with 1,000 lines or more (Do some scalability testing before using the program in production). For the comments generate some "Lorem Ipsum" random text.
 
 So we now have an source file called "MOCK_DATA.csv".
+
 We can create a prototype of our program.
 
 ##### Writing a little program
@@ -105,10 +107,13 @@ print(exportFile)
 ##### Running the program
 
 There are several ways to run our program and get the expected report.
+
 For Linux and Mac users the simplest way is to create a new terminal within Jupyter.
-For Windows users, since the terminal is [not supported](https://github.com/jupyter/notebook/issues/172) execute the program [outside of Jupyter](http://pythoncentral.io/execute-python-script-file-shell/)
+
+For Windows users, since the terminal is [not supported](https://github.com/jupyter/notebook/issues/172) execute the program [outside of Jupyter.](http://pythoncentral.io/execute-python-script-file-shell/)
 
 In Jupyter's terminal, navigate to the folder containing your program - In my case `/Desktop/Semantic Analysis Program`.
+
 Then execute the program using the `python3` command.
 
 ```bash
@@ -120,4 +125,5 @@ Check the results in the console and verify that a file named 'analysisResults.c
 ![alt text](../../../images/20160909-jupyter2.png "Jupyter Terminal")
 
 As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.
+
 You can now take more time to do more valuable tasks like to use visualization tools to present the results.

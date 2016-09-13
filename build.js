@@ -1,7 +1,7 @@
 'use strict';
 
 var Metalsmith = require('metalsmith'),
-    markdown   = require('metalsmith-markdown'),
+    markdown   = require('metalsmith-markdown-remarkable'),
     layouts    = require('metalsmith-layouts'),
     define     = require('metalsmith-define'),
     permalinks = require('metalsmith-permalinks'),
@@ -10,8 +10,7 @@ var Metalsmith = require('metalsmith'),
     inPlace    = require('metalsmith-in-place'),
     multiLanguage = require('metalsmith-multi-language'),
     i18n = require('metalsmith-i18n'),
-    collections = require('metalsmith-collections'),
-    highlighter = require('highlighter');
+    collections = require('metalsmith-collections');
 
 const DEFAULT_LOCALE = 'en';
 const LOCALES = ['fr', 'en'];
@@ -58,9 +57,9 @@ Metalsmith(__dirname)
     }))
 
     .use(markdown({
-        smartypants: true,
         gfm: true,
-        tables: true,
+        breaks: true,
+        typographer: true
     }))
     .use(permalinks({
         relative: false,

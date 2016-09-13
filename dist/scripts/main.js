@@ -54,13 +54,5 @@ $(document).ready(function(){
         }
             });
 
-    document.getElementById('fbButton').onclick = function() {
-        FB.ui({
-            method: 'share',
-            mobile_iframe: true,
-            href: 'http://52.89.137.196:3000/' + myUrl,
-        }, function(response){});
-    }
-
 
 });
