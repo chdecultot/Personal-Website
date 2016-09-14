@@ -6,67 +6,69 @@
 ga('create', 'UA-35025071-2', 'auto');
 ga('send', 'pageview');        
 
-</script></head><body class="blue-grey lighten-5 blue-grey-text text-darken-2"> <header><div class="chip"><a href="/"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z"></path></svg></a></div></header><main><div class="container"><section id="article" class="row"><div class="col s12"><div class="card"><div class="card-image"><img src="../../../images/semanticAnalysis.jpg"><span class="card-title">Simplify you data analysis with the right tools</span></div><div class="card-content"><div id="blogNav" class="row"><div id="blogHeader"><img id="logo" src="../../../images/CH-round.png" alt="Charles-Henri Decultot" class="circle"><div id="blogInfo"><strong>Charles-Henri Decultot</strong><br><span>September 9, 2016</span></div></div><div id="socialSharing" class="fixed-action-btn waves-effect waves-light horizontal click-to-toggle"><a href="#"><i class="material-icons">share</i></a><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/facebook-48x48.png" srcset="../../../images/facebook-24x24.png 1x, ../../../images/facebook-48x48.png 2x" alt="Facebook Logo"></i></a></li><li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Google+-48x48.png" srcset="../../../images/Google+-24x24.png 1x, ../../../images/Google+-48x48.png 2x" alt="Google+ Logo"></i></a></li><li><a href="https://twitter.com/intent/tweet?text=Simplify you data analysis with the right toolsurl=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Twitter-48x48.png" srcset="../../../images/Twitter-24x24.png 1x, ../../../images/Twitter-48x48.png 2x" alt="Twitter Logo"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F&amp;title=Simplify you data analysis with the right tools&amp;summary=An example of data analysis using Python/Pandas instead of Excel on huge data extract. Spend more time extracting the real value out of your data.&amp;source=Charles-Henri Decultot" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Linkedin-48x48.png" srcset="../../../images/Linkedin-24x24.png 1x, ../../../images/Linkedin-48x48.png 2x" alt="LinkedIn Logo"></i></a></li></ul></div></div><div class="row"> <div id="blogContent"><article><p>As a first article on this new blog let's consider a real case.</p>
-<p>A few weeks ago a friend was asked by his client to quickly analyze raw data extracted from their customer relationship management tools.</p>
-<p>He receives daily extract files from all over the world in <code>.csv</code> format and needs to check for the presence of offending words within the sales comments regarding their prospects or customers.</p>
-<p><strong>Problem</strong></p>
-<p>He didn't have any other tool than Excel to do this analysis efficiently on a daily basis on files with tens of thousands entries each.</p>
-<h5>Finding the right tools</h5>
-<p>Using Excel as an analysis tool can be sufficient to analyze small files punctually because it is flexible and most people know it better than any other software.</p>
-<p>Even if Excel usage can be considerably improved by the creation of macros, it lacks the power to handle huge files without the risk of crashing or preventing you from doing anything on your computer while it calculates.</p>
-<p>Therefore my friend needed to find another way to automate his task.</p>
-<p>A great way to do data analysis is to use the <a href="https://www.python.org/">Python</a> language with <a href="http://pandas.pydata.org/">Pandas</a>, an associated library providing tools for structuring and analyzing your data.</p>
-<p>If you are familiar with Linux or Mac, you can simply install both Python and Pandas through the command line, but I would recommended to install <a href="https://www.continuum.io/anaconda-overview">Anaconda</a> a complete Data Science platform available for Windows, Mac and Linux.</p>
-<p>Anaconda being a complete set of tools, we will start by using <a href="http://jupyter.org/">The Jupyter Notebook</a> a web application that will allow us to create our small analysis program on our computer.</p>
-<h5>Using the Jupyter Notebook</h5>
-<p>After the installation of Anaconda, launch The Jupyter Notebook.</p>
-<p>To launch it from the terminal on Linux, add the <code>anaconda/bin</code> folder in your path: <code>export PATH=$PATH:&quot;~/anaconda3/bin&quot;</code> (or add it in your <code>~/.bashrc</code> file directly).</p>
-<p>Create a new folder on your computer and access it within Jupyter:
-<img src="../../../images/20160909-Jupyter.png" alt="alt text" title="My program folder"></p>
-<p>Create a new file and choose &quot;Python&quot; as the language.</p>
-<p>Before we start creating our program, let's think about what you are trying to achieve.</p>
+</script></head><body class="blue-grey lighten-5 blue-grey-text text-darken-2"> <header><div class="chip"><a href="/"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z"></path></svg></a></div></header><main><div class="container"><section id="article" class="row"><div class="col s12"><div class="card"><div class="card-image"><img src="../../../images/semanticAnalysis.jpg"><span class="card-title">Simplify you data analysis with the right tools</span></div><div class="card-content"><div id="blogNav" class="row"><div id="blogHeader"><img id="logo" src="../../../images/CH-round.png" alt="Charles-Henri Decultot" class="circle"><div id="blogInfo"><strong>Charles-Henri Decultot</strong><br><span>September 9, 2016</span></div></div><div id="socialSharing" class="fixed-action-btn waves-effect waves-light horizontal click-to-toggle"><a href="#"><i class="material-icons">share</i></a><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/facebook-48x48.png" srcset="../../../images/facebook-24x24.png 1x, ../../../images/facebook-48x48.png 2x" alt="Facebook Logo"></i></a></li><li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Google+-48x48.png" srcset="../../../images/Google+-24x24.png 1x, ../../../images/Google+-48x48.png 2x" alt="Google+ Logo"></i></a></li><li><a href="https://twitter.com/intent/tweet?text=Simplify you data analysis with the right toolsurl=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Twitter-48x48.png" srcset="../../../images/Twitter-24x24.png 1x, ../../../images/Twitter-48x48.png 2x" alt="Twitter Logo"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.chdecultot.com%2Fen%2Farticles%2Fsimplify-you-data-analysis-with-the-right-tools%2F&amp;title=Simplify you data analysis with the right tools&amp;summary=An example of data analysis using Python/Pandas instead of Excel on huge data extract. Spend more time extracting the real value out of your data.&amp;source=Charles-Henri Decultot" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Linkedin-48x48.png" srcset="../../../images/Linkedin-24x24.png 1x, ../../../images/Linkedin-48x48.png 2x" alt="LinkedIn Logo"></i></a></li></ul></div><div id="blogContent"><article><p>As a first article on this new blog let&#39;s consider a real case.<br><br/>  </p>
+<p>A few weeks ago a friend was asked by his client to quickly analyze raw data extracted from their customer relationship management tools.  </p>
+<p>He receives daily extract files from all over the world in <code>.csv</code> format.  </p>
+<p>Then he needs to check for the presence of offending words within the sales people&#39;s comments regarding their prospects or customers.  </p>
+<p><strong>Problem</strong>: He didn&#39;t have any other tool than Excel to do an efficient daily analysis on files with tens of thousands entries each.</p>
+<h5 id="finding-the-right-tools">Finding the right tools</h5>
+<p>Using Excel as an analysis tool can be sufficient to analyze small files punctually because it is flexible and most people know it better than any other software.  </p>
+<p>Even if Excel usage can be considerably improved by the creation of macros, it lacks the power to handle huge files without the risk of crashing or preventing you from doing anything on your computer while it calculates.  </p>
+<p>Therefore my friend needed to find another way to automate his task.<br><br/>   </p>
+<p>A great way to do data analysis is to use the <a href="https://www.python.org/">Python</a> language with <a href="http://pandas.pydata.org/">Pandas</a>, an associated library providing tools for structuring and analyzing your data.<br><br/>  </p>
+<p>If you are familiar with Linux or Mac, you can simply install both Python and Pandas through the command line, but I would recommended to install <a href="https://www.continuum.io/anaconda-overview">Anaconda</a>, a complete Data Science platform available for Windows, Mac and Linux.<br><br/>  </p>
+<p>Anaconda being a complete set of tools, we will start by using <a href="http://jupyter.org/">The Jupyter Notebook</a> a web application that will allow us to create our small analysis program on our computer.  </p>
+<h5 id="using-the-jupyter-notebook">Using the Jupyter Notebook</h5>
+<p>After the installation of Anaconda, launch The Jupyter Notebook.  </p>
+<p>To launch it from the terminal on Linux, add the <code>anaconda/bin</code> folder in your path: <code>export PATH=$PATH:&quot;~/anaconda3/bin&quot;</code> (or add it in your <code>~/.bashrc</code> file directly).<br>  <br/>  </p>
+<p>Create a new folder on your computer and access it within Jupyter:<br><img src="../../../images/20160909-Jupyter.png" alt="alt text" title="My program folder"></p>
+<p>Create a new file and choose &quot;Python&quot; as default language.<br><br/>  </p>
+<p>Before we start creating our program, let&#39;s think again about what you are trying to achieve.</p>
 <ol>
 <li>We receive a <code>.csv</code> file containing a certain number of columns and especially all the &quot;comments&quot; from our sales people.</li>
-<li>We have a list of words considered as offending and against our ethi cs and compliance rules.</li>
+<li>We have a list of words considered as offending and against our ethics and compliance rules.</li>
 <li>We need to obtain a report showing any match between the words in the list and the comments from our source file.</li>
 </ol>
-<p>For testing purposes, you can generate a mock source file with <a href="https://www.mockaroo.com/">Mockaroo</a> or <a href="http://www.csvgenerator.com/">CSVGenerator</a>.<Add>for example 6 columns ['id, first_name, last_name, email, gender, comments'] and generate a file with 1,000 lines or more (Do some scalability testing before using the program in production). For the comments generate some &quot;Lorem Ipsum&quot; random text.</p></Add><p>So we now have an source file called &quot;MOCK_DATA.csv&quot;.</p>
-<p>We can create a prototype of our program.</p>
-<h5>Writing a little program</h5>
+<p>For testing purposes, you can generate a mock source file with <a href="https://www.mockaroo.com/">Mockaroo</a> or <a href="http://www.csvgenerator.com/">CSVGenerator</a>.  </p>
+<p>Add for example 6 columns [&#39;id, first_name, last_name, email, gender, comments&#39;] and generate a file with 1,000 lines or more (Do some scalability testing before using the program in production). For the comments generate some &quot;Lorem Ipsum&quot; random text.<br><br/>  </p>
+<p>So we now have a source file called &quot;MOCK_DATA.csv&quot;.<br><br/>  </p>
+<p>We can create a prototype of our program.  </p>
+<h5 id="writing-a-little-program">Writing a little program</h5>
 <p>Start by importing the libraries necessary to handle the csv file and Pandas to play with it.</p>
-<pre><code class="language-python">import csv<import>pandas as pd</import></code></pre>
-<p>Add any offending words to be looked for.</p>
-<pre><code class="language-python">words = ['lorem', 'ipsum', 'consequat']
-</code></pre>
-<p>You could also replace the above line with:</p>
-<pre><code class="language-python">words = pd.read_csv('OFFENDING_WORDS.csv')
-</code></pre>
-<p>It would allow you to keep a list of all offending words in an external file.</p>
-<p>Be careful in this case, the words must be in the first line, not the first column since Pandas will read the first line by default.</p>
-<p>Then create a dataframe called 'sourceFile' containing our source data and clean the comment column to remove all punctuation and uppercases.</p>
-<pre><code class="language-python">sourceFile = pd.read_csv('MOCK_DATA.csv')<sourceFile>['comments'] = sourceFile.comments.str.lower().replace('[^A-Za-z0-9]+',' ', regex=True)</sourceFile><print sourceFile.head(5)="sourceFile.head(5)"></print></code></pre>
-<p>Create a dataFrame containing the data to be exported in another '.csv' file for your analysis.</p>
-<pre><code class="language-python">exportFile = pd.DataFrame([])
-</code></pre>
-<p>Check any match between the comments and the offending words.</p>
-<pre><code class="language-python">for word in words:<sourceFile_words>= sourceFile[sourceFile['comments'].str.contains(word)]</sourceFile_words></code></pre>
-<p>If there is a match, add the columns 'id' and 'comments' to the report.</p>
+<pre><code>\1 import csv  
+\2 import pandas as pd
+</code></pre><p>Add any offending words to be looked for.</p>
+<pre><code>\3 words = [&#39;lorem&#39;, &#39;ipsum&#39;, &#39;consequat&#39;]
+</code></pre><p>You could also replace the above line with:</p>
+<pre><code>\3 words = pd.read_csv(&#39;OFFENDING_WORDS.csv&#39;)
+</code></pre><p>It would allow you to keep a list of all offending words in an external file.  </p>
+<p>Be careful in this case, the words must be in the first line, not the first column, since Pandas reads the first line by default.<br><br/>  </p>
+<p>Then create a dataframe called &#39;sourceFile&#39; containing our source data and clean the comment column to remove all punctuation and uppercases.</p>
+<pre><code>\4 sourceFile = pd.read_csv(&#39;MOCK_DATA.csv&#39;)  
+\5 sourceFile[&#39;comments&#39;] = sourceFile.comments.str.lower().replace(&#39;[^A-Za-z0-9]+&#39;,&#39; &#39;, regex=True)  
+\6 print(sourceFile.head(5))
+</code></pre><p>Create a dataFrame containing the data to be exported in another &#39;.csv&#39; file for your analysis.</p>
+<pre><code>\7 exportFile = pd.DataFrame([])
+</code></pre><p>Check any match between the comments and the offending words.</p>
+<pre><code>\8 for word in words:  
+\9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(word)]
+</code></pre><p>If there is a match, add the columns &#39;id&#39; and &#39;comments&#39; to the report.  </p>
 <p>Any other column can be added as well.</p>
-<pre><code class="language-python">exportFile = exportFile.append(pd.DataFrame( data={&quot;words&quot;: word, &quot;id&quot;: sourceFile_words['id'], &quot;comments&quot;: sourceFile_words['comments']}))
-</code></pre>
-<p>Export the report in a '.csv' file named 'analysisResults'.</p>
+<pre><code>\10 exportFile = exportFile.append(pd.DataFrame( data={&quot;words&quot;: word, &quot;id&quot;: sourceFile_words[&#39;id&#39;], &quot;comments&quot;: sourceFile_words[&#39;comments&#39;]}))
+</code></pre><p>Export the report in a &#39;.csv&#39; file named &#39;analysisResults&#39;.  </p>
 <p>Then display the result of the analysis in the console for a quick check.</p>
-<pre><code class="language-python">exportFile.to_csv('analysisResults.csv')<print exportFile="exportFile"></print></code></pre>
-<h5>Running the program</h5>
-<p>There are several ways to run our program and get the expected report.</p>
-<p>For Linux and Mac users the simplest way is to create a new terminal within Jupyter.</p>
-<p>For Windows users, since the terminal is <a href="https://github.com/jupyter/notebook/issues/172">not supported</a> execute the program <a href="http://pythoncentral.io/execute-python-script-file-shell/">outside of Jupyter.</a></p>
-<p>In Jupyter's terminal, navigate to the folder containing your program - In my case <code>/Desktop/Semantic Analysis Program</code>.</p>
+<pre><code>\11 exportFile.to_csv(&#39;analysisResults.csv&#39;)  
+\12 print(exportFile)
+</code></pre><h5 id="running-the-program">Running the program</h5>
+<p>There are several ways to run our program and get the expected report.<br><br/>  </p>
+<p>For Linux and Mac users the simplest way is to create a new terminal within Jupyter.  </p>
+<p>For Windows users, since the terminal is <a href="https://github.com/jupyter/notebook/issues/172">not supported</a> execute the program <a href="http://pythoncentral.io/execute-python-script-file-shell/">outside of Jupyter.</a><br><br/>  </p>
+<p>In Jupyter&#39;s terminal, navigate to the folder containing your program - in my case <code>/Desktop/Semantic Analysis Program</code>.<br><br/>  </p>
 <p>Then execute the program using the <code>python3</code> command.</p>
-<pre><code class="language-bash">cd ~/Desktop/Semantic Analysis Program<python3>semanticAnalysis.py</python3></code></pre>
-<p>Check the results in the console and verify that a file named 'analysisResults.csv' has been correctly created.
-<img src="../../../images/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"></p>
-<p>As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.</p>
+<pre><code>$ cd ~/Desktop/Semantic Analysis Program  
+$ python3 semanticAnalysis.py
+</code></pre><p>Check the results in the console and verify that a file named &#39;analysisResults.csv&#39; has been correctly created.<br><img src="../../../images/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"><br><br/>  </p>
+<p>As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.<br><br/>  </p>
 <p>You can now take more time to do more valuable tasks like to use visualization tools to present the results.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable

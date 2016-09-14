@@ -6,69 +6,68 @@
 ga('create', 'UA-35025071-2', 'auto');
 ga('send', 'pageview');        
 
-</script></head><body class="blue-grey lighten-5 blue-grey-text text-darken-2"> <header><div class="chip"><a href="/fr"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z">         </path></svg></a></div></header><main><div class="container"><section id="article" class="row"><div class="col s12"><div class="card"><div class="card-image"><img src="../../../images/semanticAnalysis.jpg"><span class="card-title">Facilitez l'analyse de vos données grâce aux bons outils</span></div><div class="card-content"><div id="blogNav" class="row"><div id="blogHeader"><img id="logo" src="../../../images/CH-round.png" alt="Charles-Henri Decultot" class="circle"><div id="blogInfo"><strong>Charles-Henri Decultot</strong><br><span>9 septembre 2016</span></div></div><div id="socialSharing" class="fixed-action-btn waves-effect waves-light horizontal click-to-toggle"><a href="#"><i class="material-icons">share</i></a><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/facebook-48x48.png" srcset="../../../images/facebook-24x24.png 1x, ../../../images/facebook-48x48.png 2x" alt="Facebook Logo"></i></a></li><li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Google+-48x48.png" srcset="../../../images/Google+-24x24.png 1x, ../../../images/Google+-48x48.png 2x" alt="Google+ Logo"></i></a></li><li><a href="https://twitter.com/intent/tweet?text=Facilitez l'analyse de vos données grâce aux bons outilsurl=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Twitter-48x48.png" srcset="../../../images/Twitter-24x24.png 1x, ../../../images/Twitter-48x48.png 2x" alt="Twitter Logo"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F&amp;title=Facilitez l'analyse de vos données grâce aux bons outils&amp;summary=Un exemple d'analyse de données en utilisant Python/Pandas au lieu d'Excel sur de larges échantillons de données. Gagnez du temps pour extraire plus de valeur de vos données.&amp;source=Charles-Henri Decultot" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Linkedin-48x48.png" srcset="../../../images/Linkedin-24x24.png 1x, ../../../images/Linkedin-48x48.png 2x" alt="LinkedIn Logo"></i></a></li></ul></div></div><div class="row"> <div id="blogContent"><article><p>Pour ce premier article, considérons un cas réel.</p>
-<p>Il y a quelques semaines, le client d'un ami lui a demandé d'analyser rapidement des données brutes extraites de leur CRM (logiciel de gestion de la relation client).</p>
-<p>Chaque jour il reçoit des extraits venant du monde entier au format <code>.csv</code>. Il doit ensuite vérifier la présence de certains mots considérés comme choquants au sein des commentaires entrés par les commerciaux au sujets de leurs prospects ou clients.</p>
-<p><strong>Problème</strong></p>
-<p>Il n'avait pas d'autre outil qu'Excel pour faire cette analyse efficacement de manière quotidienne sur des fichiers comprenant des milliers d'entrées chacun.</p>
-<h5>Trouver les bons outils</h5>
-<p>Excel est un outil d'analyse utile et suffisant pour traiter de petits fichiers ponctuellement, car il est flexible et la plupart des gens le connaisse mieux qu'aucun autre logiciel.</p>
-<p>Même si l'usage d'Excel peut être considérablement amélioré grâce à la création de macros, il  manque de puissance pour gérer de gros fichiers sans risque de crash ou de blocage complet de l'ordinateur lorsqu'il effectue ses calculs.</p>
-<p>Du coup mon ami avait besoin de trouver un autre moyen d'automatiser sa tâche.</p>
-<p>Une excellente manière de faire de l'analyse de données est d'utiliser le language <a href="https://www.python.org/">Python</a> couplé à <a href="http://pandas.pydata.org/">Pandas</a>, une librairie associée fournissant les outils pour structurer et analyser vos données.</p>
-<p>Si vous êtes familiers de Linux ou Mac, vous pouvez simplement installer Python et Pandas par la ligne de commande, mais je vous recommande d'installer <a href="https://www.continuum.io/anaconda-overview">Anaconda</a> une plateforme complète de sciences de données disponible pour Windows, Mac et Linux.</p>
-<p>Anaconda comprenant de nombreux outils, nous allons commencer par utiliser <a href="http://jupyter.org/">The Jupyter Notebook</a>, une application web qui va nous permettre de créer un petit programme d'analyse sur notre ordinateur.</p>
-<h5>Utiliser The Jupyter Notebook</h5>
-<p>Après l'installation d'Anaconda, démarrez The Jupyter Notebook.</p>
-<p>Pour le lancer depuis le terminal sous Linux, ajouter le dossier <code>anaconda/bin</code> dans votre chemin principal (path): <code>export PATH=$PATH:&quot;~/anaconda3/bin&quot;</code> (ou ajoutez le directement dans votre fichier <code>~/.bashrc</code>).</p>
-<p>Créez un nouveau dossier sur votre ordinateur et accédez-y dans Jupyter:<br>
-<img src="../../../images/20160909-Jupyter.png" alt="alt text" title="My program folder"></p>
-<p>Créez un nouveau fichier et choisissez &quot;Python&quot; comme language.</p>
-<p>Avant de commencer à rédiger notre programme, pensons à ce que nous essayons d'accomplir.</p>
+</script></head><body class="blue-grey lighten-5 blue-grey-text text-darken-2"> <header><div class="chip"><a href="/fr"><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M5,13L9,17L7.6,18.42L1.18,12L7.6,5.58L9,7L5,11H21V13H5M21,6V8H11V6H21M21,16V18H11V16H21Z">         </path></svg></a></div></header><main><div class="container"><section id="article" class="row"><div class="col s12"><div class="card"><div class="card-image"><img src="../../../images/semanticAnalysis.jpg"><span class="card-title">Facilitez l'analyse de vos données grâce aux bons outils</span></div><div class="card-content"><div id="blogNav" class="row"><div id="blogHeader"><img id="logo" src="../../../images/CH-round.png" alt="Charles-Henri Decultot" class="circle"><div id="blogInfo"><strong>Charles-Henri Decultot</strong><br><span>9 septembre 2016</span></div></div><div id="socialSharing" class="fixed-action-btn waves-effect waves-light horizontal click-to-toggle"><a href="#"><i class="material-icons">share</i></a><ul><li><a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/facebook-48x48.png" srcset="../../../images/facebook-24x24.png 1x, ../../../images/facebook-48x48.png 2x" alt="Facebook Logo"></i></a></li><li><a href="https://plus.google.com/share?url=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Google+-48x48.png" srcset="../../../images/Google+-24x24.png 1x, ../../../images/Google+-48x48.png 2x" alt="Google+ Logo"></i></a></li><li><a href="https://twitter.com/intent/tweet?text=Facilitez l'analyse de vos données grâce aux bons outilsurl=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Twitter-48x48.png" srcset="../../../images/Twitter-24x24.png 1x, ../../../images/Twitter-48x48.png 2x" alt="Twitter Logo"></i></a></li><li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.chdecultot.com%2Ffr%2Farticles%2Ffacilitez-l-analyse-de-vos-donn-es-gr-ce-aux-bons-outils%2F&amp;title=Facilitez l'analyse de vos données grâce aux bons outils&amp;summary=Un exemple d'analyse de données en utilisant Python/Pandas au lieu d'Excel sur de larges échantillons de données. Gagnez du temps pour extraire plus de valeur de vos données.&amp;source=Charles-Henri Decultot" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i><img src="../../../images/Linkedin-48x48.png" srcset="../../../images/Linkedin-24x24.png 1x, ../../../images/Linkedin-48x48.png 2x" alt="LinkedIn Logo"></i></a></li></ul></div><div id="blogContent"><article><p>Pour ce premier article, considérons un cas réel.<br><br/>  </p>
+<p>Il y a quelques semaines, le client d&#39;un ami lui a demandé d&#39;analyser rapidement des données brutes extraites de leur CRM (logiciel de gestion de la relation client).  </p>
+<p>Chaque jour il reçoit des extraits venant du monde entier au format <code>.csv</code>. Il doit ensuite vérifier la présence de certains mots considérés comme choquants au sein des commentaires entrés par les commerciaux au sujets de leurs prospects ou clients.  </p>
+<p><strong>Problème</strong>: Il n&#39;avait pas d&#39;autre outil qu&#39;Excel pour faire cette analyse efficacement de manière quotidienne sur des fichiers comprenant des milliers d&#39;entrées chacun.  </p>
+<h5 id="trouver-les-bons-outils">Trouver les bons outils</h5>
+<p>Excel est un outil d&#39;analyse utile et suffisant pour traiter de petits fichiers ponctuellement, car il est flexible et la plupart des gens le connaisse mieux qu&#39;aucun autre logiciel.<br><br/>  </p>
+<p>Même si l&#39;usage d&#39;Excel peut être considérablement amélioré grâce à la création de macros, il  manque de puissance pour gérer de gros fichiers sans risque de crash ou de blocage complet de l&#39;ordinateur lorsqu&#39;il effectue ses calculs.  </p>
+<p>Du coup mon ami avait besoin de trouver un autre moyen d&#39;automatiser sa tâche.<br><br/>  </p>
+<p>Une excellente manière de faire de l&#39;analyse de données est d&#39;utiliser le language <a href="https://www.python.org/">Python</a> couplé à <a href="http://pandas.pydata.org/">Pandas</a>, une librairie associée fournissant les outils pour structurer et analyser vos données.<br><br/>  </p>
+<p>Si vous êtes familiers de Linux ou Mac, vous pouvez simplement installer Python et Pandas par la ligne de commande, mais je vous recommande d&#39;installer <a href="https://www.continuum.io/anaconda-overview">Anaconda</a> une plateforme complète de sciences de données disponible pour Windows, Mac et Linux.<br><br/>  </p>
+<p>Anaconda comprenant de nombreux outils, nous allons commencer par utiliser <a href="http://jupyter.org/">The Jupyter Notebook</a>, une application web qui va nous permettre de créer un petit programme d&#39;analyse sur notre ordinateur.  </p>
+<h5 id="utiliser-the-jupyter-notebook">Utiliser The Jupyter Notebook</h5>
+<p>Après l&#39;installation d&#39;Anaconda, démarrez The Jupyter Notebook.  </p>
+<p>Pour le lancer depuis le terminal sous Linux, ajouter le dossier <code>anaconda/bin</code> dans votre chemin principal (path): <code>export PATH=$PATH:&quot;~/anaconda3/bin&quot;</code> (ou ajoutez le directement dans votre fichier <code>~/.bashrc</code>).<br><br/>  </p>
+<p>Créez un nouveau dossier sur votre ordinateur et accédez-y dans Jupyter:<br><img src="../../../images/20160909-Jupyter.png" alt="alt text" title="My program folder"></p>
+<p>Créez un nouveau fichier et choisissez &quot;Python&quot; comme language.<br><br/>  </p>
+<p>Avant de commencer à rédiger notre programme, pensons à ce que nous essayons d&#39;accomplir.</p>
 <ol>
 <li>Nous recevons un fichier <code>.csv</code> contenant un certain nombre de colonnes et notamment tous les commentaires de nos commerciaux.</li>
-<li>Nous avons une liste de mots considérés comme choquants et allant à l'encontre des standards éthiques de l'entreprise.</li>
-<li>Nous avons besoin d'obtenir un rapport contenant le résultat de la comparaison entre les mots dans la liste et les commentaires de notre fichier source.</li>
+<li>Nous avons une liste de mots considérés comme choquants et allant à l&#39;encontre des standards éthiques de l&#39;entreprise.</li>
+<li>Nous avons besoin d&#39;obtenir un rapport contenant le résultat de la comparaison entre les mots dans la liste et les commentaires de notre fichier source.</li>
 </ol>
-<p>Afin de tester, vous pouvez générer un faux fichier source avec <a href="https://www.mockaroo.com/">Mockaroo</a> ou <a href="http://www.csvgenerator.com/">CSVGenerator</a>.</p>
-<p>Ajoutez par exemple 6 colonnes ['id, first_name, last_name, email, gender, comments'] et générez un fichier de 1000 lignes ou plus (Faites des tests d'échelle avant d'utiliser le programme en production). Pour les commentaires générez du texte aléatoire de type &quot;Lorem Ipsum&quot;.</p>
-<p>Donc nous avons un fichier un source nommé &quot;MOCK_DATA.csv&quot;.</p>
+<p>Afin de tester, vous pouvez générer un faux fichier source avec <a href="https://www.mockaroo.com/">Mockaroo</a> ou <a href="http://www.csvgenerator.com/">CSVGenerator</a>.  </p>
+<p>Ajoutez par exemple 6 colonnes [&#39;id, first_name, last_name, email, gender, comments&#39;] et générez un fichier de 1000 lignes ou plus (Faites des tests d&#39;échelle avant d&#39;utiliser le programme en production). Pour les commentaires générez du texte aléatoire de type &quot;Lorem Ipsum&quot;.<br><br/>  </p>
+<p>Donc nous avons un fichier un source nommé &quot;MOCK_DATA.csv&quot;.<br><br/>  </p>
 <p>Nous pouvons créer un prototype de notre programme.</p>
-<h5>Ecrire un petit programme</h5>
-<p>Commencez par importer les librairies nécessaires pour gérer le fichier csv et Pandas pour jouer avec.</p>
-<pre><code class="language-python">import csv<import>pandas as pd</import></code></pre>
-<p>Ajoutez tous les mots choquants à rechercher.</p>
-<pre><code class="language-python">words = ['lorem', 'ipsum', 'consequat']
-</code></pre>
-<p>Vous pouvez aussi remplacer la ligne ci-dessus avec:</p>
-<pre><code class="language-python">words = pd.read_csv('OFFENDING_WORDS.csv')
-</code></pre>
-<p>Cela vous permettra de garder la liste de mots choquants dans un fichier externe.</p>
-<p>Attention dans ce cas, les mots doivent être sur la première ligne et non la première colonne puisque Pandas lit la première ligne par défaut.</p>
-<p>Ensuite créez un &quot;dataframe&quot; appelé 'sourceFile' contenant notre source de données et nettoyez la colonne de commentaires pour supprimer toutes ponctuation et majuscules.</p>
-<pre><code class="language-python">sourceFile = pd.read_csv('MOCK_DATA.csv')<sourceFile>['comments'] = sourceFile.comments.str.lower().replace('[^A-Za-z0-9]+',' ', regex=True)</sourceFile><print sourceFile.head(5)="sourceFile.head(5)"></print></code></pre>
-<p>Créez également un &quot;dataframe&quot; contenant les données à exporter dans un autre fichier '.csv' pour pouvoir faire vos analyses.</p>
-<pre><code class="language-python">exportFile = pd.DataFrame([])
-</code></pre>
-<p>Vérifiez toute concordance entre les commentaires et les mots choquants.</p>
-<pre><code class="language-python">for word in words:<sourceFile_words>= sourceFile[sourceFile['comments'].str.contains(word)]</sourceFile_words></code></pre>
-<p>S'il y a concordance, ajoutez les colonnes 'id' et 'comments' au rapport.</p>
-<p>Toute autre colonne peut également être ajoutée.</p>
-<pre><code class="language-python">exportFile = exportFile.append(pd.DataFrame( data={&quot;words&quot;: word, &quot;id&quot;: sourceFile_words['id'], &quot;comments&quot;: sourceFile_words['comments']}))
-</code></pre>
-<p>Exportez le rapport dans un fichier '.csv' nommé 'analysisResults'.</p>
-<p>Ensuite affichez les résultats de l'analyse dans la console pour une vérification rapide.</p>
-<pre><code class="language-python">exportFile.to_csv('analysisResults.csv')<print exportFile="exportFile"></print></code></pre>
-<h5>Lancer le programme</h5>
-<p>Il y a plusieurs manières de lancer notre programme et d'obtenir le rapport attendu.</p>
-<p>Pour les utilisateurs de Linux et Mac, la façon la plus simple est de créer un nouveau terminal sous Jupyter.</p>
-<p>Pour les utilisateur de Windows, puisque le terminal n'est <a href="https://github.com/jupyter/notebook/issues/172">pas supporté</a> lancez le programme <a href="http://pythoncentral.io/execute-python-script-file-shell/">en dehors de Jupyter.</a></p>
-<p>Dans le terminal de Jupyter, naviguez jusqu'au dossier contenant votre programme - Dans mon cas <code>/Desktop/Semantic Analysis Program</code>.</p>
-<p>Exécutez le programme avec la commande <code>python3</code>.</p>
-<pre><code class="language-bash">cd ~/Desktop/Semantic Analysis Program<python3>semanticAnalysis.py</python3></code></pre>
-<p>Vérifiez les résultats dans la console et que le fichier 'analysisResults.csv' a été correctement créé.
-<img src="../../../images/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"></p>
-<p>Comme vous pouvez le voir, il n'a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.</p>
+<h5 id="ecrire-un-petit-programme">Ecrire un petit programme</h5>
+<p>Commencez par importer les librairies nécessaires pour gérer le fichier csv et Pandas pour jouer avec.  </p>
+<pre><code>\1 import csv  
+\2 import pandas as pd
+</code></pre><p>Ajoutez tous les mots choquants à rechercher.  </p>
+<pre><code>\3 words = [&#39;lorem&#39;, &#39;ipsum&#39;, &#39;consequat&#39;]  
+</code></pre><p>Vous pouvez aussi remplacer la ligne ci-dessus avec:  </p>
+<pre><code>\3 words = pd.read_csv(&#39;OFFENDING_WORDS.csv&#39;)  
+</code></pre><p>Cela vous permettra de garder la liste de mots choquants dans un fichier externe.  </p>
+<p>Attention dans ce cas, les mots doivent être sur la première ligne et non la première colonne puisque Pandas lit la première ligne par défaut.<br><br/>  </p>
+<p>Ensuite créez un &quot;dataframe&quot; appelé &#39;sourceFile&#39; contenant notre source de données et nettoyez la colonne de commentaires pour supprimer toutes ponctuation et majuscules.  </p>
+<pre><code>\4 sourceFile = pd.read_csv(&#39;MOCK_DATA.csv&#39;)  
+\5 sourceFile[&#39;comments&#39;] = sourceFile.comments.str.lower().replace(&#39;[^A-Za-z0-9]+&#39;,&#39; &#39;, regex=True)  
+\6 print(sourceFile.head(5))  
+</code></pre><p>Créez également un &quot;dataframe&quot; contenant les données à exporter dans un autre fichier &#39;.csv&#39; pour pouvoir faire vos analyses.  </p>
+<pre><code>\7 exportFile = pd.DataFrame([])  
+</code></pre><p>Vérifiez toute concordance entre les commentaires et les mots choquants.  </p>
+<pre><code>\8 for word in words:
+\9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(word)]
+</code></pre><p>S&#39;il y a concordance, ajoutez les colonnes &#39;id&#39; et &#39;comments&#39; au rapport.   </p>
+<p>Toute autre colonne peut également être ajoutée.  </p>
+<pre><code>\10 exportFile = exportFile.append(pd.DataFrame( data={&quot;words&quot;: word, &quot;id&quot;: sourceFile_words[&#39;id&#39;], &quot;comments&quot;: sourceFile_words[&#39;comments&#39;]}))  
+</code></pre><p>Exportez le rapport dans un fichier &#39;.csv&#39; nommé &#39;analysisResults&#39;.  </p>
+<p>Ensuite affichez les résultats de l&#39;analyse dans la console pour une vérification rapide.  </p>
+<pre><code>\11 exportFile.to_csv(&#39;analysisResults.csv&#39;)  
+\12 print(exportFile)  
+</code></pre><h5 id="lancer-le-programme">Lancer le programme</h5>
+<p>Il y a plusieurs manières de lancer notre programme et d&#39;obtenir le rapport attendu.<br><br/>  </p>
+<p>Pour les utilisateurs de Linux et Mac, la façon la plus simple est de créer un nouveau terminal sous Jupyter.  </p>
+<p>Pour les utilisateur de Windows, puisque le terminal n&#39;est <a href="https://github.com/jupyter/notebook/issues/172">pas supporté</a> lancez le programme <a href="http://pythoncentral.io/execute-python-script-file-shell/">en dehors de Jupyter.</a><br><br/></p>
+<p>Dans le terminal de Jupyter, naviguez jusqu&#39;au dossier contenant votre programme - Dans mon cas <code>/Desktop/Semantic Analysis Program</code>.<br><br/>  </p>
+<p>Exécutez le programme avec la commande <code>python3</code>.  </p>
+<pre><code>$ cd ~/Desktop/Semantic Analysis Program  
+$ python3 semanticAnalysis.py  
+</code></pre><p>Vérifiez les résultats dans la console et que le fichier &#39;analysisResults.csv&#39; a été correctement créé.<br><img src="../../../images/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"><br><br/>  </p>
+<p>Comme vous pouvez le voir, il n&#39;a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.<br><br/>  </p>
 <p>Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable

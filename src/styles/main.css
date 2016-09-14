@@ -95,6 +95,10 @@ a {
     color: #ff8a80;
 }
 
+#blogContent p + p {
+    margin-top: 5px;
+}
+
 #stackIcons > li {
     display: inline-block;
     height: 48px;

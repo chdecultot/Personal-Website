@@ -1,7 +1,7 @@
 'use strict';
 
 var Metalsmith = require('metalsmith'),
-    markdown   = require('metalsmith-markdown-remarkable'),
+    markdown   = require('metalsmith-markdown'),
     layouts    = require('metalsmith-layouts'),
     define     = require('metalsmith-define'),
     permalinks = require('metalsmith-permalinks'),
@@ -56,7 +56,11 @@ Metalsmith(__dirname)
         directory: 'locales'
     }))
 
-    .use(markdown())
+    .use(markdown({
+        "gfm": true,
+        "breaks": true,
+        "tables": true
+    }))
     .use(permalinks({
         relative: false,
         pattern: ':locale/:title/',
