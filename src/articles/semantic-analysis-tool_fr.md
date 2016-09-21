@@ -6,7 +6,7 @@ date: 2016-09-09
 author: Charles-Henri Decultot
 logo: ../../../images/CH-round.png
 preview: Un exemple d'analyse de données en utilisant Python/Pandas au lieu d'Excel sur de larges échantillons de données. Gagnez du temps pour extraire plus de valeur de vos données.
-image: ../../../images/semanticAnalysis.jpg
+image: ../../../images/heroImages/semanticAnalysis.png
 ---
 Pour ce premier article, considérons un cas réel.  
 <br/>  
@@ -45,7 +45,7 @@ Pour le lancer depuis le terminal sous Linux, ajouter le dossier `anaconda/bin` 
 <br/>  
   
 Créez un nouveau dossier sur votre ordinateur et accédez-y dans Jupyter:  
-![alt text](../../../images/20160909-Jupyter.png "My program folder")
+![alt text](../../../images/articles/20160909-Jupyter.png "My program folder")
   
   
 Créez un nouveau fichier et choisissez "Python" comme language.  
@@ -145,7 +145,7 @@ Exécutez le programme avec la commande `python3`.
     $ python3 semanticAnalysis.py  
 
 Vérifiez les résultats dans la console et que le fichier 'analysisResults.csv' a été correctement créé.
-![alt text](../../../images/20160909-jupyter2.png "Jupyter Terminal")
+![alt text](../../../images/articles/20160909-jupyter2.png "Jupyter Terminal")
 <br/>  
  
 Comme vous pouvez le voir, il n'a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.  

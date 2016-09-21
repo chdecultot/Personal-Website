@@ -59,14 +59,15 @@ a {
     display: inline-block !important;
     vertical-align: middle !important;
     right: 5px;
+    top: -20px;
     overflow: visible;
     padding: 0;
     padding-top: 30px;
 }
 
-.fixed-action-btn.horizontal ul {
-    right: 30px;
-    top: 40px;
+#socialSharing ul {
+    right: 20px;
+    margin: 0;
 }
 
 #logo {
@@ -97,6 +98,10 @@ a {
 
 #blogContent p + p {
     margin-top: 5px;
+}
+
+#blogContent img {
+    max-width: 100%;
 }
 
 #stackIcons > li {
@@ -150,11 +155,13 @@ a {
         text-align: left;
     }
 
-    #socialSharing {
-        padding-top: 0px;
+    .collapsible-header {
+        line-height: 2rem;
     }
 
-
+    #infoPopout .timestamp {
+        display: none;
+    }
 }
 
 .fixed-action-btn {
