@@ -151,4 +151,32 @@ Check the results in the console and verify that a file named 'analysisResults.c
 As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.  
 <br/>  
 
-You can now take more time to do more valuable tasks like to use visualization tools to present the results.
+You can now take more time to do more valuable tasks like to use visualization tools to present the results.  
+<br/>
+
+**08/10/2016 - UPDATE**  
+
+After testing the above code with production data, I have adjusted the code a little bit.  
+<br/>
+
+Since some csv files encoding are causing issues, it is better to specify the encoding while reading the file:
+`\4 sourceFile = pd.read_csv('MOCK_DATA.csv', encoding='utf-8')`
+<br/>
+
+Then it appeared that chinese characters were not read and words extraction needed to be exact, so I had to modify the cleansing and the extraction lines:
+```
+\5 sourceFile['comments'] = sourceFile.comments.str.lower().replace('[.!?:,;]+',' ', regex=True)
+```
+  
+```  
+\9 sourceFile_words = sourceFile[sourceFile['comments'].str.contains(r'(?:\s|^)'+word+'(?:\s|$)', na=False)]
+ ```
+  
+`na=False`  ensures missing data in the column will be simply considered as not matching the extraction condition.  
+<br/>  
+  
+After these changes, the program was able to read csv files with up to 250,000 lines.  
+<br/>
+
+*TIP:* If any issues with Excel converted files, consider using LibreOffice. 
+

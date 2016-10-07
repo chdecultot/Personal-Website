@@ -68,7 +68,16 @@ ga('send', 'pageview');
 $ python3 semanticAnalysis.py  
 </code></pre><p>Vérifiez les résultats dans la console et que le fichier &#39;analysisResults.csv&#39; a été correctement créé.<br><img src="../../../images/articles/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"><br><br/>  </p>
 <p>Comme vous pouvez le voir, il n&#39;a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.<br><br/>  </p>
-<p>Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
+<p>Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.<br><br/></p>
+<p><strong>08/10/2016 - UPDATE</strong>  </p>
+<p>Après avoir testé le code ci-dessus avec des données de production, j&#39;ai dû faire quelques ajustements.<br><br/></p>
+<p>Puisque l&#39;encodage de certains fichiers csv ne sont pas lus correctement, il est préférable d&#39;indiquer l&#39;encodage pendant la lecture du fichier:<br><code>\4 sourceFile = pd.read_csv(&#39;MOCK_DATA.csv&#39;, encoding=&#39;utf-8&#39;)</code></p>
+<p>Ensuite, il est apparu que les caractères chinois n&#39;étaient pas lu et que les mots extraits devaient être identiques à ceux du fichier source, donc j&#39;ai dû modifier les lignes de nettoyage et d&#39;extraction des données:</p>
+<pre><code>\5 sourceFile[&#39;comments&#39;] = sourceFile.comments.str.lower().replace(&#39;[.!?:,;]+&#39;,&#39; &#39;, regex=True)
+</code></pre><pre><code>\9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(r&#39;(?:\s|^)&#39;+word+&#39;(?:\s|$)&#39;, na=False)]
+</code></pre><p><code>na=False</code>  assure que si certaines cellules n&#39;ont pas de données, le programme va simplement considérer qu&#39;elles ne correspondent pas à la recherche.<br><br/></p>
+<p>Après ces changements, la programme a été capable de lire des fichiers csv de plus de 250,000 lignes.<br><br/></p>
+<p><em>TIP:</em> Si vous avez des problèmes avec les fichiers transformés sous Excel, pensez à utiliser LibreOffice.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };

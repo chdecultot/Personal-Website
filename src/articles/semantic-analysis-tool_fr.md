@@ -151,4 +151,30 @@ Vérifiez les résultats dans la console et que le fichier 'analysisResults.csv'
 Comme vous pouvez le voir, il n'a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.  
 <br/>  
   
-Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.
+Vous pouvez donc consacrer plus de temps à des tâches à plus de valeur ajoutée comme utiliser des outils de visualization pour trouver des présentez les résultats.  
+<br/>
+
+**08/10/2016 - UPDATE**  
+
+Après avoir testé le code ci-dessus avec des données de production, j'ai dû faire quelques ajustements.  
+<br/>
+
+Puisque l'encodage de certains fichiers csv ne sont pas lus correctement, il est préférable d'indiquer l'encodage pendant la lecture du fichier:
+`\4 sourceFile = pd.read_csv('MOCK_DATA.csv', encoding='utf-8')`
+
+Ensuite, il est apparu que les caractères chinois n'étaient pas lu et que les mots extraits devaient être identiques à ceux du fichier source, donc j'ai dû modifier les lignes de nettoyage et d'extraction des données:
+```
+\5 sourceFile['comments'] = sourceFile.comments.str.lower().replace('[.!?:,;]+',' ', regex=True)
+```
+  
+```
+\9 sourceFile_words = sourceFile[sourceFile['comments'].str.contains(r'(?:\s|^)'+word+'(?:\s|$)', na=False)]
+```
+  
+`na=False`  assure que si certaines cellules n'ont pas de données, le programme va simplement considérer qu'elles ne correspondent pas à la recherche.  
+<br/>
+  
+Après ces changements, la programme a été capable de lire des fichiers csv de plus de 250,000 lignes.  
+<br/>
+
+*TIP:* Si vous avez des problèmes avec les fichiers transformés sous Excel, pensez à utiliser LibreOffice.

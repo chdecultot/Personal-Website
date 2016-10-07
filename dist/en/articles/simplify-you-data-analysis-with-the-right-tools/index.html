@@ -69,7 +69,16 @@ ga('send', 'pageview');
 $ python3 semanticAnalysis.py
 </code></pre><p>Check the results in the console and verify that a file named &#39;analysisResults.csv&#39; has been correctly created.<br><img src="../../../images/articles/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"><br><br/>  </p>
 <p>As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.<br><br/>  </p>
-<p>You can now take more time to do more valuable tasks like to use visualization tools to present the results.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
+<p>You can now take more time to do more valuable tasks like to use visualization tools to present the results.<br><br/></p>
+<p><strong>08/10/2016 - UPDATE</strong>  </p>
+<p>After testing the above code with production data, I have adjusted the code a little bit.<br><br/></p>
+<p>Since some csv files encoding are causing issues, it is better to specify the encoding while reading the file:<br><code>\4 sourceFile = pd.read_csv(&#39;MOCK_DATA.csv&#39;, encoding=&#39;utf-8&#39;)</code><br><br/></p>
+<p>Then it appeared that chinese characters were not read and words extraction needed to be exact, so I had to modify the cleansing and the extraction lines:</p>
+<pre><code>\5 sourceFile[&#39;comments&#39;] = sourceFile.comments.str.lower().replace(&#39;[.!?:,;]+&#39;,&#39; &#39;, regex=True)
+</code></pre><pre><code>\9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(r&#39;(?:\s|^)&#39;+word+&#39;(?:\s|$)&#39;, na=False)]
+</code></pre><p><code>na=False</code>  ensures missing data in the column will be simply considered as not matching the extraction condition.<br><br/>  </p>
+<p>After these changes, the program was able to read csv files with up to 250,000 lines.<br><br/></p>
+<p><em>TIP:</em> If any issues with Excel converted files, consider using LibreOffice. </p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
