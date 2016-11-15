@@ -18,7 +18,7 @@ Savez-vous qu'en 2015, 39% des logiciels installés sur des PC d'entreprise dans
 En plus d'un risque de poursuites judiciaires et de fortes amendes, le risque le plus élévé est un risque de sécurité puisque, toujours d'après le BSA, il y a une forte corrélation entre les "malware" et les logiciels sans licence.  
 <br/>
 
-Vous pourriez croire que la solution est de simplement acheter des licences et d'établir un processus de gestion de votre portefeuille de logicels.  
+Vous pourriez croire que la solution est de simplement acheter des licences et d'établir un processus de gestion de votre portefeuille de logiciels.  
 Je suis d'accord, mais à moins que vous ne soyez une grande entreprise avec un gros budget IT et des personnes dédiées à ce processus, ce n'est sûrement pas une option.  
 <br/>
 
@@ -28,7 +28,7 @@ La plupart du temps vous n'avez pas à payer la moindre licence, ce qui ne veut 
 
 En ce qui concerne la sécurité, je ne vais pas entamer un débat, mais il n'y a aucune preuve que les logiciels open-source soient moins sécurisés que les logiciels propriétaires. L'open-source a déjà envahi pratiquement tous les serveurs dans le monde, la vaste majorité des téléphones et même vos voitures.
 Tous les GAFA les ont adopté et de plus en plus de pays les utilisent dans leurs administrations.  
-Le gouvernement américain a même publié une nouvelle règle concernant les code sources des administration fédérales, obligeant les agences gouvernementales à publier sous licence open-source 20% de tous le code qu'elles créent (ou font créer).  
+Le gouvernement américain a même publié une nouvelle règle concernant les code sources des administration fédérales, obligeant les agences gouvernementales à publier sous licence open-source 20% de tout le code qu'elles créent (ou font créer).  
 Même Microsoft a intégré Ubuntu et Bash dans sa dernière version de Windows 10. Certains pourraient même dire qu'il s'agit d'une [petite révolution](http://www.theregister.co.uk/2001/06/02/ballmer_linux_is_a_cancer/) étant donné la position de Microsoft sur ce sujet il y encore 15 ans.  
 <br/>
 
@@ -70,7 +70,7 @@ Bien évidemment il y des coûts cachés de conduite du changement, mais est-il 
 Vous pouvez toujours migrer votre système d'exploitation sous une distribution Linux et garder Office 365 Online ou Google Docs comme suite bureautique.  
 <br/>
 
-Nous ne parlons ici que tu sommet de l'Iceberg en terme de réduction des coûts. Imaginez ce que ça donnerait en migrant votre logiciel de gestion de projet, votre CRM ou votre ERP d'un logiciel propriétaire à un logiciel open-source!  
+Nous ne parlons ici que du sommet de l'Iceberg en terme de réduction des coûts. Imaginez ce que ça donnerait en migrant votre logiciel de gestion de projet, votre CRM ou votre ERP d'un logiciel propriétaire à un logiciel open-source!  
 <br/>
 
 C'est là que ça devient vraiment intéressant: vous pouvez vous construire un portefeuille de logiciels opérationnel et optimisé qui réponde réellement à vos besoins métiers sans être enfermés avec un contrat fournisseur contraignant ou des standards propriétaires limitants.  
@@ -80,7 +80,7 @@ De plus, ça donne aux petites et moyennes entreprises accès à des logiciels p
 La puissance de l'open-source vient de sa capacité à vous laisser choisir l'outil dont vous avez réellement besoin sans le prix d'un logiciel propriétaire, de bénéficier des amélioration apportés par une communauté, de contribuer à son développement et de toujours utiliser la dernière version sans coûts additionnels.  
 <br/>
 
-Cela ne veut pas dire que vous ne rencontrez pas les mêmes difficultés qu'avec n'importe quelle implémentation logicielle, mais vous aurez davantage de flexibilité et de contrôle.  
+Cela ne veut pas dire que vous ne rencontrerez pas les mêmes difficultés qu'avec n'importe quelle implémentation logicielle, mais vous aurez davantage de flexibilité et de contrôle.  
 <br/>
 
 Nous allons explorer plus en détails ces bénéfices dans les prochains articles et construire un portefeuille de logiciels basiques ensemble.  
