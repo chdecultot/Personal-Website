@@ -19,6 +19,9 @@ append header
          else
           a(href=`/${lang(lc).path}`, , class="tooltipped", data-position="right", data-delay="50", data-tooltip="Read in English")
            i.material-icons language
+
+  .corner-ribbon.top-right.sticky.custom-color.shadow 
+    a(href='https://www.dokos.io' target='_blank') DOKOS
     
 block content
 
@@ -91,9 +94,16 @@ block content
        div 
         p=__('aboutMe-p2')
         br
+       div
+        p=__('aboutMe-p4')
+        br
+        a.teal-text.text-darken-3(href='https://www.dokos.io' target='_blank')=__('dokos-name')
+        br
+        br
        .divider
         br
        div
+        br
         p=__('aboutMe-p3')
         ul#stackIcons
          li: img(src="../../images/mongodb.png" alt="MongoDB Logo")
