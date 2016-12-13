@@ -113,4 +113,4 @@ In any case, a cloud-oriented setup for your company's devices will allow you to
 It is afterwards only an arbitrage to be made between the cost of SaaS subscriptions for a service versus the switch to a free and open-source software, including the underlying change management cost.  
 </br>
 
-Don't hesitate to contact if you need an analysis or advices on this topic.  
+Don't hesitate to contact me if you need an analysis or advices on this topic.  
