@@ -10,7 +10,8 @@ var Metalsmith = require('metalsmith'),
     inPlace    = require('metalsmith-in-place'),
     multiLanguage = require('metalsmith-multi-language'),
     i18n = require('metalsmith-i18n'),
-    collections = require('metalsmith-collections');
+    collections = require('metalsmith-collections'),
+    highlighter = require('highlighter');
 
 const DEFAULT_LOCALE = 'en';
 const LOCALES = ['fr', 'en'];
@@ -59,7 +60,8 @@ Metalsmith(__dirname)
     .use(markdown({
         "gfm": true,
         "breaks": true,
-        "tables": true
+        "tables": true,
+        highlight: highlighter()
     }))
     .use(permalinks({
         relative: false,
@@ -83,11 +85,6 @@ Metalsmith(__dirname)
         cleanCSS: {
             rebase: true
         }
-    }))
-
-    .use(inPlace({
-        engine: 'jade',
-        pattern: '**/*.html'
     }))
     .use(layouts({
         engine: 'jade',

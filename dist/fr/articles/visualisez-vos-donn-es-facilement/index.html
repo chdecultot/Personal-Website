@@ -52,7 +52,8 @@ ga('send', 'pageview');
 <p>Finalement, nous pourrions vérifier les noms des commerciaux qui ont enfreint le plus les règles dans chaque pays - Dans ce test, nous avons les mêmes noms plusieurs fois car la base de données contient beaucoup d&#39;homonymes.</p>
 <pre><code>%brunel data(&#39;exportFile&#39;) bubble color(country) size(words) label(country) sort(words) count(words) legends(none) tooltip(#count) interaction(select) | x(gender) y(#count:root) color(gender) bar transpose tooltip(#count) legends(none) interaction(filter) | cloud color(city) label(last_name) size(words) count(words) sort(words) legends(none) interaction(filter) style(&#39;font-size:200px, font-family:Impact&#39;) :: height=800, width=1000
 </code></pre><p>Cela devrait vous créer un petit &quot;dashboard&quot; pour vous aider à prendre vos décision ou pour communiquer en interne.<br><img src="../../../images/articles/20160923-visualize-results-6.png" alt="alt text" title="Visualization dashboard"><br><br/></p>
-<p>Vous pouvez trouver les données utilisées dans cet article sur <a href="https://github.com/chdecultot/semanticAnalysisProgram">github</a> si vous voulez jouer avec.<br>N&#39;hésitez pas non plus à me partager vos propres visualisations ou Jupyter Notebooks. </p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
+<p>Vous pouvez trouver les données utilisées dans cet article sur <a href="https://github.com/chdecultot/semanticAnalysisProgram">github</a> si vous voulez jouer avec.<br>N&#39;hésitez pas non plus à me partager vos propres visualisations ou Jupyter Notebooks. </p>
+</article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };

@@ -35,6 +35,7 @@ ga('send', 'pageview');
 <h5 id="ecrire-un-petit-programme">Ecrire un petit programme</h5>
 <p>Commencez par importer les librairies nécessaires pour gérer le fichier csv et Pandas pour jouer avec.  </p>
 <pre><code>\1 import csv  
+
 \2 import pandas as pd
 </code></pre><p>Ajoutez tous les mots choquants à rechercher.  </p>
 <pre><code>\3 words = [&#39;lorem&#39;, &#39;ipsum&#39;, &#39;consequat&#39;]  
@@ -44,7 +45,9 @@ ga('send', 'pageview');
 <p>Attention dans ce cas, les mots doivent être sur la première ligne et non la première colonne puisque Pandas lit la première ligne par défaut.<br><br/>  </p>
 <p>Ensuite créez un &quot;dataframe&quot; appelé &#39;sourceFile&#39; contenant notre source de données et nettoyez la colonne de commentaires pour supprimer toutes ponctuation et majuscules.  </p>
 <pre><code>\4 sourceFile = pd.read_csv(&#39;MOCK_DATA.csv&#39;)  
+
 \5 sourceFile[&#39;comments&#39;] = sourceFile.comments.str.lower().replace(&#39;[^A-Za-z0-9]+&#39;,&#39; &#39;, regex=True)  
+
 \6 print(sourceFile.head(5))  
 </code></pre><p>Créez également un &quot;dataframe&quot; contenant les données à exporter dans un autre fichier &#39;.csv&#39; pour pouvoir faire vos analyses.  </p>
 <pre><code>\7 exportFile = pd.DataFrame([])  
@@ -57,6 +60,7 @@ ga('send', 'pageview');
 </code></pre><p>Exportez le rapport dans un fichier &#39;.csv&#39; nommé &#39;analysisResults&#39;.  </p>
 <p>Ensuite affichez les résultats de l&#39;analyse dans la console pour une vérification rapide.  </p>
 <pre><code>\11 exportFile.to_csv(&#39;analysisResults.csv&#39;)  
+
 \12 print(exportFile)  
 </code></pre><h5 id="lancer-le-programme">Lancer le programme</h5>
 <p>Il y a plusieurs manières de lancer notre programme et d&#39;obtenir le rapport attendu.<br><br/>  </p>
@@ -65,6 +69,7 @@ ga('send', 'pageview');
 <p>Dans le terminal de Jupyter, naviguez jusqu&#39;au dossier contenant votre programme - Dans mon cas <code>/Desktop/Semantic Analysis Program</code>.<br><br/>  </p>
 <p>Exécutez le programme avec la commande <code>python3</code>.  </p>
 <pre><code>$ cd ~/Desktop/Semantic Analysis Program  
+
 $ python3 semanticAnalysis.py  
 </code></pre><p>Vérifiez les résultats dans la console et que le fichier &#39;analysisResults.csv&#39; a été correctement créé.<br><img src="../../../images/articles/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"><br><br/>  </p>
 <p>Comme vous pouvez le voir, il n&#39;a fallût que quelques secondes pour analysez le fichier et sortir un rapport clair au lieu de quelques minutes/heures sous Excel.<br><br/>  </p>
@@ -77,7 +82,8 @@ $ python3 semanticAnalysis.py
 </code></pre><pre><code>\9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(r&#39;(?:\s|^)&#39;+word+&#39;(?:\s|$)&#39;, na=False)]
 </code></pre><p><code>na=False</code>  assure que si certaines cellules n&#39;ont pas de données, le programme va simplement considérer qu&#39;elles ne correspondent pas à la recherche.<br><br/></p>
 <p>Après ces changements, la programme a été capable de lire des fichiers csv de plus de 250,000 lignes.<br><br/></p>
-<p><em>TIP:</em> Si vous avez des problèmes avec les fichiers transformés sous Excel, pensez à utiliser LibreOffice.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
+<p><em>TIP:</em> Si vous avez des problèmes avec les fichiers transformés sous Excel, pensez à utiliser LibreOffice.</p>
+</article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };

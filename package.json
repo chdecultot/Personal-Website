@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chdecultot/Personal-Website.git"
+    "url": "git+https://github.com/chdecultot/chdecultot.com.git"
   },
   "keywords": [
     "decultot",
@@ -20,9 +20,9 @@
   "author": "Charles-Henri Decultot",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chdecultot/Personal-Website/issues"
+    "url": "https://github.com/chdecultot/chdecultot.com/issues"
   },
-  "homepage": "https://github.com/chdecultot/Personal-Website#readme",
+  "homepage": "https://github.com/chdecultot/chdecultot.com#readme",
   "devDependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
@@ -50,6 +50,7 @@
     "sendgrid-nodejs": "0.1.0-2"
   },
   "dependencies": {
+    "highlighter": "0.0.3",
     "metalsmith-markdown-remarkable": "^0.1.1"
   }
 }

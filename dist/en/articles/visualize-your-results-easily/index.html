@@ -52,7 +52,8 @@ ga('send', 'pageview');
 <p>Finally we could check the names of the sales people who have infringed the rules the most in each country - In this test we may have duplicate names, it is because our dataset contains multiple homonyms.</p>
 <pre><code>%brunel data(&#39;exportFile&#39;) bubble color(country) size(words) label(country) sort(words) count(words) legends(none) tooltip(#count) interaction(select) | x(gender) y(#count:root) color(gender) bar transpose tooltip(#count) legends(none) interaction(filter) | cloud color(city) label(last_name) size(words) count(words) sort(words) legends(none) interaction(filter) style(&#39;font-size:200px, font-family:Impact&#39;) :: height=800, width=1000
 </code></pre><p>You should now have a small dashboard to help you make you own decision or to communicate internally.<br><img src="../../../images/articles/20160923-visualize-results-6.png" alt="alt text" title="Visualization dashboard"><br><br/></p>
-<p>You can find the data used in this article on <a href="https://github.com/chdecultot/semanticAnalysisProgram">github</a> if you want to play with it.<br>Don&#39;t hesitate to also share your own visualization or Jupyter Notebooks.</p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
+<p>You can find the data used in this article on <a href="https://github.com/chdecultot/semanticAnalysisProgram">github</a> if you want to play with it.<br>Don&#39;t hesitate to also share your own visualization or Jupyter Notebooks.</p>
+</article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };

@@ -36,6 +36,7 @@ ga('send', 'pageview');
 <h5 id="writing-a-little-program">Writing a little program</h5>
 <p>Start by importing the libraries necessary to handle the csv file and Pandas to play with it.</p>
 <pre><code>\1 import csv  
+
 \2 import pandas as pd
 </code></pre><p>Add any offending words to be looked for.</p>
 <pre><code>\3 words = [&#39;lorem&#39;, &#39;ipsum&#39;, &#39;consequat&#39;]
@@ -45,12 +46,15 @@ ga('send', 'pageview');
 <p>Be careful in this case, the words must be in the first line, not the first column, since Pandas reads the first line by default.<br><br/>  </p>
 <p>Then create a dataframe called &#39;sourceFile&#39; containing our source data and clean the comment column to remove all punctuation and uppercases.</p>
 <pre><code>\4 sourceFile = pd.read_csv(&#39;MOCK_DATA.csv&#39;)  
+
 \5 sourceFile[&#39;comments&#39;] = sourceFile.comments.str.lower().replace(&#39;[^A-Za-z0-9]+&#39;,&#39; &#39;, regex=True)  
+
 \6 print(sourceFile.head(5))
 </code></pre><p>Create a dataFrame containing the data to be exported in another &#39;.csv&#39; file for your analysis.</p>
 <pre><code>\7 exportFile = pd.DataFrame([])
 </code></pre><p>Check any match between the comments and the offending words.</p>
 <pre><code>\8 for word in words:  
+
 \9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(word)]
 </code></pre><p>If there is a match, add the columns &#39;id&#39; and &#39;comments&#39; to the report.  </p>
 <p>Any other column can be added as well.</p>
@@ -58,6 +62,7 @@ ga('send', 'pageview');
 </code></pre><p>Export the report in a &#39;.csv&#39; file named &#39;analysisResults&#39;.  </p>
 <p>Then display the result of the analysis in the console for a quick check.</p>
 <pre><code>\11 exportFile.to_csv(&#39;analysisResults.csv&#39;)  
+
 \12 print(exportFile)
 </code></pre><h5 id="running-the-program">Running the program</h5>
 <p>There are several ways to run our program and get the expected report.<br><br/>  </p>
@@ -66,6 +71,7 @@ ga('send', 'pageview');
 <p>In Jupyter&#39;s terminal, navigate to the folder containing your program - in my case <code>/Desktop/Semantic Analysis Program</code>.<br><br/>  </p>
 <p>Then execute the program using the <code>python3</code> command.</p>
 <pre><code>$ cd ~/Desktop/Semantic Analysis Program  
+
 $ python3 semanticAnalysis.py
 </code></pre><p>Check the results in the console and verify that a file named &#39;analysisResults.csv&#39; has been correctly created.<br><img src="../../../images/articles/20160909-jupyter2.png" alt="alt text" title="Jupyter Terminal"><br><br/>  </p>
 <p>As you can see, it took only a few seconds to analyze the file and provide a clean report instead a minutes/hours on Excel.<br><br/>  </p>
@@ -78,7 +84,8 @@ $ python3 semanticAnalysis.py
 </code></pre><pre><code>\9 sourceFile_words = sourceFile[sourceFile[&#39;comments&#39;].str.contains(r&#39;(?:\s|^)&#39;+word+&#39;(?:\s|$)&#39;, na=False)]
 </code></pre><p><code>na=False</code>  ensures missing data in the column will be simply considered as not matching the extraction condition.<br><br/>  </p>
 <p>After these changes, the program was able to read csv files with up to 250,000 lines.<br><br/></p>
-<p><em>TIP:</em> If any issues with Excel converted files, consider using LibreOffice. </p></article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
+<p><em>TIP:</em> If any issues with Excel converted files, consider using LibreOffice. </p>
+</article></div></div><div class="row"><div id="disqus_thread"></div><script>var disqus_config = function () {
      this.page.url = myUrl;
      this.page.identifier = id; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
