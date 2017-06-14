@@ -44,7 +44,7 @@ var transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: process.env.USER,
+        user: process.env.MAILUSER,
         pass: process.env.PASSWORD
     }
 });
@@ -56,8 +56,8 @@ function handleContact(req, res){
     var message = {
         from: 'contact@chdecultot.com',
         to: 'chdecultot@gmail.com',
-        subject: 'New Form Submission',
-        text: 'NAME: '+ req.body.name + ' ||PHONE: ' + req.body.phone + ' ||EMAIL: '+ req.body.email + ' ||MESSAGE: '+ req.body.textarea
+        subject: '[chdecultot.com] Nouveau Formulaire',
+        text: 'NAME: '+ req.body.name + '<br>PHONE: ' + req.body.phone + '<br>EMAIL: '+ req.body.email + '<br>MESSAGE: '+ req.body.textarea
 
     };
 
