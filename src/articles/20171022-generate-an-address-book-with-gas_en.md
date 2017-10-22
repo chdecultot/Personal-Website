@@ -27,7 +27,7 @@ Up to you to share it as is, send it in an email or export it as a PDF.
 **The code to be added in your Google Doc**
 
 The code is split in two parts (could be split further for more clarity).  
-Do not forget to change the variable filtering contacts based on their group's assignment.  
+Do not forget to change the variable filtering contacts based on their group's assignment and to add a cover picture in your source Google Doc.    
 <br>
 To add it in your Google Drive, create a new Google Doc and go to "Tools > Script Editor".  
 Replace the existing code in "Code.gs" with the below code.  

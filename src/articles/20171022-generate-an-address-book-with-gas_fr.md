@@ -27,7 +27,7 @@ Vous pouvez ensuite le partager tel quel, l'envoyer par email ou l'exporter en P
 **Le code à ajouter à votre Google Doc**
 
 Le code est divisé en deux parties (il pourrait être encore divisé davantage pour une meilleure lecture).  
-Attention, pensez bien à modifier la variable permettant de filtrer les groupes de contacts à imprimer.  
+Attention, pensez bien à modifier la variable permettant de filtrer les groupes de contacts à imprimer et à ajouter une image de couverture dans votre Google Doc source.    
 <br>
 Pour l'ajouter à votre Google Drive, créez un nouveau Google Doc et allez dans "Outils > Éditeur de Script".  
 Remplacez le code présent dans "Code.gs" avec le code ci-dessous.  
