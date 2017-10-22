@@ -15,13 +15,13 @@ So, when we started to think about developing a software specific to midwifes, w
 We had several options :  
 <br>
 **Develop a proprietary application ?**
-Of course we could have, but it would have been in contradiction with our philosophy and our way to work with our clients. We really do think that our difference is on the quality of services we provide and we couldn't consider having a different approach with midwifes.     
+Of course we could have, but it would have been in contradiction with our philosophy and our way to work with our clients. We really think that our difference is based on the quality of services we provide and we couldn't consider having a different approach with midwifes.     
 <br>
 **Create an open-source application with another technology ?**
-It was an option, but we would have needed to reinvent the wheel. The knowledge developed around ERPNext allowed us to propose the best of ERPNext by adapting it specifically to the needs of independent midwifes. Using another technology would have implied to re-develop the billing and accounting parts with almost no added value.  
+It was an option, but we would have needed to reinvent the wheel. The knowledge developed around ERPNext allows us to propose the best of ERPNext by adapting it specifically to the needs of independent midwifes. Using another technology would have implied to re-develop the billing and accounting parts with almost no added value.  
 <br>
 **Merge Maia with ERPNext ?**
-This is the big question ! Why not merge all of our developments in the source code of ERPNext and benefit from the support of the community to maintain it ? We do it regularly for our clients and encourage them strongly in that way, so why not follow our own advices ?  
+That is the big question ! Why not merge all of our developments in the source code of ERPNext and benefit from the support of the community to maintain it ? We do it regularly for our clients and encourage them strongly in that way, so why not follow our own advices ?  
 
 As you now know, we have made the choice to keep Maia in an application separated from ERPNext. It is a choice that leads to its share of difficulties because we need to maintain this application with a lot of technical constraints and make sure that it does not break with every update.
 However we made this choice for several reasons:  
@@ -31,7 +31,7 @@ However we made this choice for several reasons:
 In the scope of a classic deployment, our clients often ask us to modify existing modules, sometimes to create specific modules. Usually these modifications are not specific to one particular profession and can be reused by other companies in the world.
 Only changes that are too specific and/or in contradiction with how ERPNext currently works are not integrated in the source code.  
 
-For Maia, we are in a situation where changes brought to ERPNext are specific only to France and to a very specific activity. To merge them into ERPNext would have required a lot of time and compromises, fully understandable by the way, to make this module more universal than it currently is.
+For Maia, we are in a situation where changes brought to ERPNext are specific only to France and to a very specific activity. To merge them into ERPNext would have required a lot of time and compromises - fully understandable by the way - to make this module more universal than it currently is.
 
 By keeping the application separated from ERPNext, we are in control of our developments, we can send corrections in production faster and can continue to push the application forward by focusing only the needs of french midwifes (for now 😉).
 <br>
@@ -45,7 +45,7 @@ The true difficulty consists indeed in simplifying to maximum the software to si
 <br>
   <h6><li> *The ongoing development of a medical module integrated to ERPNext* </li></h6>
 
-During the development phase of Maia, we discovered that a team based in Kerala had developed a medical module and the merge operations have already started.
+During the development phase of Maia, we discovered that a team based in Kerala had developed a medical module and the merge operations had already started.
 This module has a huge potential for medical centers and more important health care structures, but it was not adapted to an independent midfiwe activity.
 We would have needed to completely change our delivery planning had we considered a merge with this medical module, with a least a few months delay.
 <br>

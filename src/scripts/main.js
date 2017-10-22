@@ -15,12 +15,12 @@ $(document).ready(function(){
         malarkey(elem, opts).type('d\'améliorer vos outils internes ?').pause().delete()
             .type('d\'un meilleur site web ?').pause().delete()
             .type('de visualiser vos données ?').pause().delete()
-                .type('de plus d\'efficacité ?').pause().delete();
+                .type('de plus d\'automatisation ?').pause().delete();
         } else {
             malarkey(elem, opts).type('to improve your internal tools ?').pause().delete()
                 .type('a better website ?').pause().delete()
                 .type('to visualize your data ?').pause().delete()
-                .type('more efficiency ?').pause().delete();
+                .type('more automation ?').pause().delete();
 
         };
     };
